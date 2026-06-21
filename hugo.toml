@@ -20,9 +20,12 @@ hasCJKLanguage = true
   ShowWordCount = false
   ShowRssButtonInSectionTermList = true
   UseHugoToc = true
+  mainSections = ["posts"]
   disableSpecial1stPost = false
+  ShowRelatedPosts = true
+  relatedPostsLimit = 5
   disableScrollToTop = false
-  comments = false
+  comments = true
   hidemeta = false
   hideSummary = false
   showtoc = true
@@ -64,8 +67,7 @@ C# 为主，Halcon 是核心工具。不聊前端、不写 AI 玩具、不讲 Li
     icon = "/favicon.ico"
     iconHeight = 35
 
-  [params.analytics]
-    [params.analytics.google]
+  [params.analytics.google]
       SiteVerificationTag = ""
 
   [params.assets]
@@ -92,6 +94,18 @@ C# 为主，Halcon 是核心工具。不聊前端、不写 AI 玩具、不讲 Li
     weight = 30
 
   [[menu.main]]
+    identifier = "categories"
+    name = "📁 分类"
+    url = "/categories/"
+    weight = 25
+
+  [[menu.main]]
+    identifier = "series"
+    name = "📚 系列"
+    url = "/series/"
+    weight = 27
+
+  [[menu.main]]
     identifier = "search"
     name = "🔍 搜索"
     url = "/search/"
@@ -100,6 +114,24 @@ C# 为主，Halcon 是核心工具。不聊前端、不写 AI 玩具、不讲 Li
 [taxonomies]
   tag = "tags"
   category = "categories"
+  series = "series"
+
+[related]
+  includeNewer = true
+  threshold = 50
+  toLower = false
+
+  [[related.indices]]
+    name = "tags"
+    weight = 80
+
+  [[related.indices]]
+    name = "categories"
+    weight = 50
+
+[[related.indices]]
+  name = "keywords"
+  weight = 30
 
 [markup]
   [markup.highlight]

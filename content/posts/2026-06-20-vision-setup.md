@@ -11,6 +11,8 @@ tags:
   - Halcon
 categories:
   - 机器视觉
+series:
+  - 实验台搭建
 weight: 1
 ---
 
