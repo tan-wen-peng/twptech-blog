@@ -1,0 +1,124 @@
+baseURL = "https://www.twptech.site/"
+locale = "zh-CN"
+title = "TWP技术笔记 · 视觉·PLC·运动控制"
+theme = "PaperMod"
+defaultContentLanguage = "zh"
+enableInlineShortcodes = true
+enableRobotsTXT = true
+hasCJKLanguage = true
+
+[params]
+  description = "机器视觉 | PLC | 运动控制 | 机械设计 | 工业现场调试 — 只讲产线上真实趟过的坑"
+  author = "TWP"
+  keywords = ["机器视觉","PLC","运动控制","机械设计","工业自动化","Halcon","海康威视","汇川","雷赛"]
+  DateFormat = "2006-01-02"
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = false
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  disableSpecial1stPost = false
+  disableScrollToTop = false
+  comments = false
+  hidemeta = false
+  hideSummary = false
+  showtoc = true
+  tocopen = true
+
+  [params.homeInfoParams]
+    Title = "TWP技术笔记"
+    Content = """
+**视觉 · PLC · 运动控制**
+
+产线上踩过的坑、淌过的雷，才是工程师最值钱的资产。
+
+本站只聊机器视觉、PLC、运动控制、机械设计与工业现场调试。  
+C# 为主，Halcon 是核心工具。不聊前端、不写 AI 玩具、不讲 Linux 运维。
+"""
+
+  [[params.socialIcons]]
+    name = "github"
+    title = "GitHub"
+    url = "https://github.com/tan-wen-peng"
+
+  [[params.socialIcons]]
+    name = "email"
+    title = "联系我"
+    url = "mailto:twptech@example.com"
+
+  [params.cover]
+    hidden = false
+    hiddenInList = false
+    hiddenInSingle = false
+
+  [params.editPost]
+    URL = "https://github.com/tan-wen-peng/twptech-blog/content"
+    Text = "建议修改"
+    appendFilePath = true
+
+  [params.label]
+    text = "TWP技术笔记"
+    icon = "/favicon.ico"
+    iconHeight = 35
+
+  [params.analytics]
+    [params.analytics.google]
+      SiteVerificationTag = ""
+
+  [params.assets]
+    favicon = "/favicon.ico"
+    apple_touch_icon = "/apple-touch-icon.png"
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "📂 文章归档"
+    url = "/posts/"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "about"
+    name = "ℹ️ 关于本站"
+    url = "/about/"
+    weight = 20
+
+  [[menu.main]]
+    identifier = "tags"
+    name = "🏷️ 标签"
+    url = "/tags/"
+    weight = 30
+
+  [[menu.main]]
+    identifier = "search"
+    name = "🔍 搜索"
+    url = "/search/"
+    weight = 40
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+    lineNos = true
+    lineNumbersInTable = true
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[privacy]
+  [privacy.vimeo]
+    disabled = true
+  [privacy.twitter]
+    disabled = true
+  [privacy.instagram]
+    disabled = true
+  [privacy.youtube]
+    disabled = true
