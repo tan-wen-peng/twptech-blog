@@ -10,7 +10,7 @@ hasCJKLanguage = true
 [params]
   description = "机器视觉 | PLC | 运动控制 | 机械设计 | 工业现场调试 — 只讲产线上真实趟过的坑"
   author = "TWP"
-  keywords = ["机器视觉","PLC","运动控制","机械设计","工业自动化","Halcon","海康威视","汇川","雷赛"]
+  keywords = ["机器视觉","PLC","运动控制","机械设计","工业自动化","Halcon","海康威视","汇川","雷赛","C++","Creo","UG","SolidWorks","Halcon教程","海康相机SDK","工业视觉案例","C# Halcon","Modbus TCP C#"]
   DateFormat = "2006-01-02"
   ShowReadingTime = true
   ShowShareButtons = false
@@ -31,6 +31,19 @@ hasCJKLanguage = true
   showtoc = true
   tocopen = true
 
+  # Fuse.js 搜索参数
+  [params.fuseOpts]
+    isCaseSensitive = false
+    includeScore = true
+    includeMatches = true
+    shouldSort = true
+    findAllMatches = true
+    minMatchCharLength = 2
+    threshold = 0.3
+    distance = 200
+    ignoreLocation = true
+    keys = ["title", "permalink", "summary", "content"]
+
   [params.homeInfoParams]
     Title = "TWP技术笔记"
     Content = """
@@ -39,7 +52,7 @@ hasCJKLanguage = true
 产线上踩过的坑、淌过的雷，才是工程师最值钱的资产。
 
 本站只聊机器视觉、PLC、运动控制、机械设计与工业现场调试。  
-C# 为主，Halcon 是核心工具。不聊前端、不写 AI 玩具、不讲 Linux 运维。
+C# / C++ 为主，Halcon 是核心工具。不聊前端、不写 AI 玩具、不讲 Linux 运维。
 """
 
   [[params.socialIcons]]
@@ -50,28 +63,30 @@ C# 为主，Halcon 是核心工具。不聊前端、不写 AI 玩具、不讲 Li
   [[params.socialIcons]]
     name = "email"
     title = "联系我"
-    url = "mailto:twptech@example.com"
+    url = "mailto:2129336372@qq.com"
 
   [params.cover]
     hidden = false
     hiddenInList = false
     hiddenInSingle = false
 
-  [params.editPost]
-    URL = "https://github.com/tan-wen-peng/twptech-blog/content"
-    Text = "建议修改"
-    appendFilePath = true
+  # editPost 暂不启用（GitHub Pages 遗留）
+  #[params.editPost]
+  #  URL = "https://github.com/tan-wen-peng/twptech-blog/content"
+  #  Text = "建议修改"
+  #  appendFilePath = true
 
   [params.label]
     text = "TWP技术笔记"
-    icon = "/favicon.ico"
+    icon = "/logo.svg"
     iconHeight = 35
 
+  # Google Analytics（空=不启用）
   [params.analytics.google]
       SiteVerificationTag = ""
 
   [params.assets]
-    favicon = "/favicon.ico"
+    favicon = "/logo.svg"
     apple_touch_icon = "/apple-touch-icon.png"
 
 [menu]
@@ -104,6 +119,12 @@ C# 为主，Halcon 是核心工具。不聊前端、不写 AI 玩具、不讲 Li
     name = "📚 系列"
     url = "/series/"
     weight = 27
+
+  [[menu.main]]
+    identifier = "download"
+    name = "📥 下载"
+    url = "/download/"
+    weight = 35
 
   [[menu.main]]
     identifier = "search"
@@ -149,7 +170,7 @@ C# 为主，Halcon 是核心工具。不聊前端、不写 AI 玩具、不讲 Li
   [privacy.vimeo]
     disabled = true
   [privacy.twitter]
-    disabled = true
+    disabled = false
   [privacy.instagram]
     disabled = true
   [privacy.youtube]

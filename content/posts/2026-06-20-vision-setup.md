@@ -3,7 +3,7 @@ title: "¥3850搭建工业视觉实验台：海康相机+Halcon+C#入门"
 description: "零基础搭建一套工业视觉实验环境的完整清单与选型逻辑"
 slug: vision-setup-3850
 date: 2026-06-20
-image:
+image: /images/cover-vision-setup.svg
 tags:
   - 机器视觉
   - 硬件选型
@@ -12,7 +12,7 @@ tags:
 categories:
   - 机器视觉
 series:
-  - 实验台搭建
+  - 视觉入门到交付
 weight: 1
 ---
 

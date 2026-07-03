@@ -1,0 +1,529 @@
+{{ define "main" }}
+<style>
+/* ===== Hero ===== */
+.hero-section {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(160deg, #1a1a2e 0%, #16213e 100%);
+  margin: 0;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 30% 60%, rgba(0,102,255,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 30%, rgba(255,107,53,0.05) 0%, transparent 50%);
+  z-index: 0;
+}
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.035;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  max-width: 820px;
+}
+.hero-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 5px 14px;
+  border-radius: 3px;
+  margin-bottom: 1.8rem;
+  font-weight: 400;
+}
+.hero-title {
+  font-size: clamp(2.6rem, 7vw, 4.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #fff;
+  margin: 0 0 0.8rem;
+}
+.hero-title .highlight {
+  background: linear-gradient(135deg, #0066FF 0%, #4d94ff 50%, #80b3ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: rgba(255,255,255,0.45);
+  line-height: 1.65;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+}
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 32px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+.hero-btn.primary {
+  background: #0066FF;
+  color: #fff;
+  border: none;
+}
+.hero-btn.primary:hover {
+  background: #0052CC;
+  transform: translateY(-1px);
+}
+.hero-btn.secondary {
+  background: transparent;
+  color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.hero-btn.secondary:hover {
+  border-color: rgba(255,255,255,0.5);
+  color: #fff;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  color: rgba(255,255,255,0.2);
+  font-size: 1.3rem;
+  animation: bounce 2s infinite;
+  cursor: default;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ===== Articles Section ===== */
+.articles-section {
+  background: #F8F9FA;
+  padding: 4rem 1.5rem;
+}
+.articles-header {
+  max-width: 1200px;
+  margin: 0 auto 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Engineering divider */
+.articles-header::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #d0d5dd 20%, #d0d5dd 80%, transparent 100%);
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #eef0f2;
+  box-shadow: 0 4px 20px rgba(0, 102, 255, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 102, 255, 0.12);
+}
+.card-cover {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  background: #1a1a2e;
+}
+.card-body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 0.6rem;
+}
+.card-tag {
+  font-size: 0.7rem;
+  padding: 2px 12px;
+  border-radius: 3px;
+  border: 1px solid #d0d5dd;
+  color: #1A1A2E;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #1A1A2E;
+  margin: 0 0 0.5rem;
+  transition: color 0.2s;
+}
+.card:hover .card-title {
+  color: #0066FF;
+}
+.card-excerpt {
+  font-size: 0.88rem;
+  color: #6C757D;
+  line-height: 1.65;
+  flex: 1;
+  margin: 0 0 1rem;
+}
+.card-meta {
+  font-size: 0.78rem;
+  color: #6C757D;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "SF Mono", "Consolas", monospace;
+}
+.card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* ===== About Section ===== */
+.about-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-top: 1px solid #eef0f2;
+}
+.about-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0066FF, #4d94ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 700;
+  font-family: "SF Mono", "Consolas", monospace;
+}
+.about-text {
+  flex: 1;
+  min-width: 280px;
+}
+.about-text h2 {
+  font-size: 1.3rem;
+  margin: 0 0 0.3rem;
+  color: #1A1A2E;
+}
+.about-text p {
+  font-size: 0.92rem;
+  color: #6C757D;
+  line-height: 1.7;
+  margin: 0 0 1.2rem;
+}
+.about-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.about-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.about-link.primary {
+  background: #0066FF;
+  color: #fff;
+}
+.about-link.primary:hover {
+  background: #0052CC;
+}
+.about-link.outline {
+  border: 1px solid #d0d5dd;
+  color: #1A1A2E;
+}
+.about-link.outline:hover {
+  border-color: #0066FF;
+  color: #0066FF;
+}
+
+/* ===== Subscribe Section ===== */
+.subscribe-section {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+.subscribe-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.subscribe-inner h2 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.01em;
+}
+.subscribe-inner > p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.45);
+  margin: 0 0 2rem;
+  line-height: 1.6;
+}
+.subscribe-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: left;
+}
+.subscribe-card h3 {
+  font-size: 1rem;
+  color: #fff;
+  margin: 0 0 0.2rem;
+}
+.subscribe-card .desc {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+  margin: 0 0 1.2rem;
+}
+.resource-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+.resource-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  font-size: 0.87rem;
+  color: rgba(255,255,255,0.6);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.resource-list li:last-child { border: none; }
+.resource-list li::before {
+  content: "📦";
+  font-size: 0.9rem;
+}
+.subscribe-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.subscribe-form input {
+  flex: 1;
+  min-width: 200px;
+  padding: 11px 16px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-size: 0.88rem;
+  outline: none;
+}
+.subscribe-form input::placeholder { color: rgba(255,255,255,0.3); }
+.subscribe-form input:focus { border-color: #0066FF; }
+.subscribe-form button {
+  padding: 11px 26px;
+  background: #0066FF;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+}
+.subscribe-form button:hover { opacity: 0.9; }
+.subscribe-note {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.25);
+  margin-top: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .hero-title { font-size: clamp(1.8rem, 8vw, 2.6rem); }
+  .about-section { flex-direction: column; text-align: center; }
+  .about-links { justify-content: center; }
+}
+</style>
+
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" }}
+
+<!-- Hero -->
+<section class="hero-section">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">工业视觉 · PLC · 运动控制</div>
+    <h1 class="hero-title">TWP <span class="highlight">工业视觉技术笔记</span></h1>
+    <p class="hero-sub">
+      产线上踩过的坑、淌过的雷，才是工程师最值钱的资产。<br>
+      C# / C++ 为主，Halcon 是核心工具。不聊前端、不写 AI 玩具、不讲 Linux 运维。
+    </p>
+    <div class="hero-actions">
+      <a href="#articles" class="hero-btn primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        最新文章
+      </a>
+      <a href="/about/" class="hero-btn secondary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        关于我
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">⌄</div>
+</section>
+
+<!-- Articles -->
+<section class="articles-section" id="articles">
+  <div class="articles-header">
+    <div>
+      <h2 style="font-size:1.4rem;margin:0;color:#1A1A2E;font-weight:600;letter-spacing:-0.01em;">最新文章</h2>
+      <p style="font-size:0.85rem;color:#6C757D;margin:4px 0 0;">产线上的真实经验，每一篇都是趟过雷的</p>
+    </div>
+    <a href="/posts/" style="font-size:0.85rem;color:#0066FF;text-decoration:none;font-weight:500;padding:8px 20px;border:1px solid #0066FF;border-radius:6px;transition:all 0.2s;">查看全部 →</a>
+  </div>
+
+  <div class="card-grid">
+    {{- range $pages }}
+    <article class="card">
+      {{- $cover := .Params.image | default "/images/default-cover.png" }}
+      {{- $firstLetter := substr .Title 0 1 }}
+      <div class="card-cover" style="background:linear-gradient(135deg, #1a1a2e, #16213e);display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:4rem;font-weight:700;color:rgba(0,102,255,0.3);font-family:'SF Mono',Consolas,monospace;">{{ $firstLetter }}</span>
+      </div>
+      <div class="card-body">
+        <div class="card-tags">
+          {{- range first 2 .Params.tags }}
+          <span class="card-tag">{{ . }}</span>
+          {{- end }}
+        </div>
+        <h3 class="card-title">{{ .Title }}</h3>
+        <p class="card-excerpt">{{ .Summary | plainify | htmlUnescape | truncate 120 }}</p>
+        <div class="card-meta">
+          <span>{{ .Date.Format "2006-01-02" }}</span>
+          <span>·</span>
+          <span>{{ .ReadingTime }} min</span>
+        </div>
+        <a class="card-link" href="{{ .Permalink }}" aria-label="{{ .Title }}"></a>
+      </div>
+    </article>
+    {{- end }}
+  </div>
+</section>
+
+<!-- About Author -->
+<section>
+  <div class="about-section">
+    <div class="about-avatar">T</div>
+    <div class="about-text">
+      <h2>关于 TWP</h2>
+      <p>
+        干了十来年工业自动化。PLC 起步，后来转机器视觉，
+        现在 Visual Studio + Halcon 一天不打开就手痒。<br>
+        博客里记的全是产线上真实踩过的坑——有些 debug 到半夜，
+        有些背着线缆飞客户现场，学会了就写下来。
+      </p>
+      <div class="about-links">
+        <a href="/about/" class="about-link primary">了解更多 →</a>
+        <a href="https://github.com/tan-wen-peng" class="about-link outline" target="_blank">GitHub</a>
+        <a href="mailto:2129336372@qq.com" class="about-link outline">联系我</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Subscribe / Resource -->
+<section class="subscribe-section">
+  <div class="subscribe-inner">
+    <h2>获取配套资源</h2>
+    <p>文章里的源码、工程文件、调试工具，打包好了一口气给你。</p>
+    <div class="subscribe-card">
+      <h3>📦 免费资源包</h3>
+      <p class="desc">留下邮箱，上架后第一时间推送下载链接，每周最多一封邮件</p>
+      <ul class="resource-list">
+        <li>Halcon 接海康相机 — 完整 C# Demo 源码</li>
+        <li>模板匹配 C# 工程 — 直接编译运行的 VS2022 项目</li>
+        <li>Modbus TCP 通信封装 — PLC ↔ 上位机可复用类库</li>
+        <li>标定板 PDF + 九点标定数据模板</li>
+        <li>打光方案对照表 — 金属/塑料/PCB/玻璃</li>
+      </ul>
+      <form class="subscribe-form" action="mailto:2129336372@qq.com" method="GET" enctype="text/plain">
+        <input type="email" name="email" placeholder="your@email.com" required>
+        <input type="hidden" name="subject" value="订阅资源更新">
+        <button type="submit">订阅更新 →</button>
+      </form>
+      <p class="subscribe-note">不群发、不骚扰、不泄漏。有资源更新才发。</p>
+    </div>
+  </div>
+</section>
+
+<script>
+document.querySelector('.hero-btn.primary')?.addEventListener('click', function(e) {
+  e.preventDefault();
+  document.querySelector('#articles')?.scrollIntoView({ behavior: 'smooth' });
+});
+</script>
+
+{{ end }}
