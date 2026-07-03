@@ -111,9 +111,11 @@ a:hover {
   padding: 0;
 }
 
-/* Language tag via pseudo-element */
-.post-content pre[class*="language-"]::before,
-.post-content pre:has(code)::before {
+/* Language tag on code blocks */
+.post-content pre {
+  overflow: hidden !important;
+}
+.post-content pre[data-lang]::before {
   content: attr(data-lang);
   position: absolute;
   top: 0;

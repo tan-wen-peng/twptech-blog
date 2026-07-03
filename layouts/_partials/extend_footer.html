@@ -3,3 +3,15 @@
         湘ICP备2026026324号-1
     </a>
 </div>
+
+<script>
+// Copy code[data-lang] to parent <pre> for CSS ::before
+(function() {
+  document.querySelectorAll('pre code[data-lang]').forEach(function(el) {
+    var lang = el.getAttribute('data-lang');
+    if (lang && el.parentNode && el.parentNode.tagName === 'PRE') {
+      el.parentNode.setAttribute('data-lang', lang);
+    }
+  });
+})();
+</script>
