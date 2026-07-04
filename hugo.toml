@@ -8,9 +8,9 @@ enableRobotsTXT = true
 hasCJKLanguage = true
 
 [params]
-  description = "机器视觉 | PLC | 运动控制 | 机械设计 | 工业现场调试 — 只讲产线上真实趟过的坑"
+  description = "机械结构设计 | Creo参数化建模 | 钣金工程化 | 工程图自动化 — 只讲产线上真实趟过的坑"
   author = "TWP"
-  keywords = ["机器视觉","PLC","运动控制","机械设计","工业自动化","Halcon","海康威视","汇川","雷赛","C++","Creo","UG","SolidWorks","Halcon教程","海康相机SDK","工业视觉案例","C# Halcon","Modbus TCP C#"]
+  keywords = ["机械结构设计","Creo","参数化建模","钣金设计","Top-Down设计","工程图自动化","BOM体系","SolidWorks","Creo二次开发","结构仿真","工业自动化","机械工程师","结构设计"]
   DateFormat = "2006-01-02"
   ShowReadingTime = true
   ShowShareButtons = false
@@ -63,7 +63,7 @@ C# / C++ 为主，Halcon 是核心工具。不聊前端、不写 AI 玩具、不
   [[params.socialIcons]]
     name = "email"
     title = "联系我"
-    url = "mailto:2129336372@qq.com"
+    url = "mailto:2129336720@qq.com"
 
   [params.cover]
     hidden = false
