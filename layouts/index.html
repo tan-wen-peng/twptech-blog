@@ -1,5 +1,21 @@
 {{ define "main" }}
 <style>
+/* ===== Scroll Reveal ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
 /* ===== Hero ===== */
 .hero-section {
   position: relative;
@@ -10,22 +26,28 @@
   align-items: center;
   text-align: center;
   overflow: hidden;
-  background: linear-gradient(160deg, #1a1a2e 0%, #16213e 100%);
+  background: linear-gradient(160deg, #0f0f23 0%, #16213e 100%);
   margin: 0;
+}
+#hero-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 .hero-bg {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 50% at 30% 60%, rgba(0,102,255,0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at 80% 30%, rgba(255,107,53,0.05) 0%, transparent 50%);
+    radial-gradient(ellipse 70% 50% at 30% 60%, rgba(0,102,255,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 30%, rgba(255,107,53,0.06) 0%, transparent 50%);
   z-index: 0;
 }
 .hero-grid {
   position: absolute;
   inset: 0;
   z-index: 0;
-  opacity: 0.035;
+  opacity: 0.03;
   background-image:
     linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
@@ -411,17 +433,18 @@
 {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" }}
 
 <!-- Hero -->
-<section class="hero-section">
+<section class="hero-section" id="hero">
+  <canvas id="hero-particles"></canvas>
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <div class="hero-badge">工业视觉 · PLC · 运动控制</div>
-    <h1 class="hero-title"><span style="white-space:nowrap">TWP <span class="highlight">技术笔记</span></span></h1>
-    <p class="hero-sub">
+    <div class="hero-badge reveal reveal-delay-1">结构设计 · Creo · 钣金</div>
+    <h1 class="hero-title reveal reveal-delay-2" id="hero-title"><span style="white-space:nowrap">TWP <span class="highlight">技术笔记</span></span></h1>
+    <p class="hero-sub reveal reveal-delay-3">
       产线上踩过的坑、淌过的雷，才是工程师最值钱的资产。<br>
-      C# / C++ 为主，Halcon 是核心工具。不聊前端、不写 AI 玩具、不讲 Linux 运维。
+      Creo 参数化建模 | 钣金工程化 | 工程图自动化
     </p>
-    <div class="hero-actions">
+    <div class="hero-actions reveal reveal-delay-4">
       <a href="#articles" class="hero-btn primary">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
         最新文章
@@ -446,8 +469,8 @@
   </div>
 
   <div class="card-grid">
-    {{- range $pages }}
-    <article class="card">
+    {{- range $i, $v := $pages }}
+    <article class="card reveal" style="transition-delay: {{ mul $i 100 }}ms">
       {{- $cover := .Params.image | default "/images/default-cover.png" }}
       {{- $firstLetter := substr .Title 0 1 }}
       <div class="card-cover" style="background:linear-gradient(135deg, #1a1a2e, #16213e);display:flex;align-items:center;justify-content:center;">
@@ -475,7 +498,7 @@
 
 <!-- About Author -->
 <section>
-  <div class="about-section">
+  <div class="about-section reveal">
     <div class="about-avatar">T</div>
     <div class="about-text">
       <h2>关于 TWP</h2>
@@ -494,7 +517,7 @@
 </section>
 
 <!-- Subscribe / Resource -->
-<section class="subscribe-section">
+<section class="subscribe-section reveal">
   <div class="subscribe-inner">
     <h2>获取配套资源</h2>
     <p>文章里的源码、工程文件、调试工具，打包好了一口气给你。</p>
@@ -519,6 +542,112 @@
 </section>
 
 <script>
+// ===== Hero Particle Canvas =====
+(function(){
+  const canvas = document.getElementById('hero-particles');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let w, h, particles = [], mouse = { x: -999, y: -999 };
+  const COUNT = 80;
+  const CONNECT_DIST = 130;
+  const MOUSE_DIST = 200;
+
+  function resize() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    w = canvas.width = rect.width;
+    h = canvas.height = rect.height;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  class Particle {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * w;
+      this.y = Math.random() * h;
+      this.vx = (Math.random() - 0.5) * 0.4;
+      this.vy = (Math.random() - 0.5) * 0.4;
+      this.r = Math.random() * 1.5 + 0.5;
+    }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      if (this.x < 0 || this.x > w) this.vx *= -1;
+      if (this.y < 0 || this.y > h) this.vy *= -1;
+      // mouse repulsion
+      const dx = this.x - mouse.x, dy = this.y - mouse.y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist < MOUSE_DIST && dist > 0) {
+        const force = (MOUSE_DIST - dist) / MOUSE_DIST * 0.6;
+        this.x += (dx / dist) * force;
+        this.y += (dy / dist) * force;
+      }
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(0, 102, 255, 0.25)';
+      ctx.fill();
+    }
+  }
+
+  for (let i = 0; i < COUNT; i++) particles.push(new Particle());
+
+  function drawLines() {
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i+1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < CONNECT_DIST) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(0, 102, 255, ${(1 - dist/CONNECT_DIST) * 0.12})`;
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, w, h);
+    particles.forEach(p => { p.update(); p.draw(); });
+    drawLines();
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  document.getElementById('hero').addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+  document.getElementById('hero').addEventListener('mouseleave', () => {
+    mouse.x = -999; mouse.y = -999;
+  });
+  // recalc resize on layout shift
+  const ro = new ResizeObserver(resize);
+  ro.observe(canvas.parentElement);
+})();
+
+// ===== Scroll Reveal =====
+(function(){
+  const els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(el => observer.observe(el));
+})();
+
+// ===== Hero Scroll Button =====
 document.querySelector('.hero-btn.primary')?.addEventListener('click', function(e) {
   e.preventDefault();
   document.querySelector('#articles')?.scrollIntoView({ behavior: 'smooth' });
