@@ -8,9 +8,9 @@ enableRobotsTXT = true
 hasCJKLanguage = true
 
 [params]
-  description = "机械结构设计 | Creo参数化建模 | 钣金工程化 | 工程图自动化 — 只讲产线上真实趟过的坑"
+  description = "机械结构设计 | Creo参数化建模 | 工程图自动化 — 只讲产线上真实趟过的坑"
   author = "TWP"
-  keywords = ["机械结构设计","Creo","参数化建模","钣金设计","Top-Down设计","工程图自动化","BOM体系","SolidWorks","Creo二次开发","结构仿真","工业自动化","机械工程师","结构设计"]
+  keywords = ["机械结构设计","Creo","参数化建模","Top-Down设计","工程图自动化","BOM体系","SolidWorks","Creo二次开发","结构仿真","工业自动化","机械工程师","结构设计"]
   DateFormat = "2006-01-02"
   ShowReadingTime = true
   ShowShareButtons = false
