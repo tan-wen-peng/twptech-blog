@@ -81,7 +81,7 @@ C# / C++ 为主，Halcon 是核心工具。不聊前端、不写 AI 玩具、不
     icon = "/logo.svg"
     iconHeight = 35
 
-  # Google Analytics（空=不启用）
+  # Google Analytics（填写 GA 测量 ID 后启用）
   [params.analytics.google]
       SiteVerificationTag = ""
 
@@ -154,6 +154,12 @@ C# / C++ 为主，Halcon 是核心工具。不聊前端、不写 AI 玩具、不
   name = "keywords"
   weight = 30
 
+# SEO & Sitemap
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
 [markup]
   [markup.highlight]
     noClasses = false
@@ -167,6 +173,10 @@ C# / C++ 为主，Halcon 是核心工具。不聊前端、不写 AI 玩具、不
   home = ["HTML", "RSS", "JSON"]
 
 [privacy]
+  [privacy.googleAnalytics]
+    disable = false
+    respectDoNotTrack = true
+
   [privacy.vimeo]
     disabled = true
   [privacy.twitter]

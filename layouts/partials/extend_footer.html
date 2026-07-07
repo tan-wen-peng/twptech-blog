@@ -1,5 +1,68 @@
-<div style="text-align:center; margin-top: 8px; font-size: 0.85em;">
+{{- /* 页脚增强 - 社交链接 + 附加信息 */}}
+<div class="footer-extras">
+  {{- with site.Params.socialIcons }}
+  <div class="footer-social">
+    <span class="footer-social-label">找到我：</span>
+    <div class="footer-social-icons">
+      {{- range . }}
+      <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="footer-social-icon" title="{{ .title | default .name }}">
+        {{- partial "svg.html" (dict "name" .name) -}}
+      </a>
+      {{- end }}
+    </div>
+  </div>
+  {{- end }}
+  <div class="footer-tagline">
+    <span>产线上的真实经验，每一篇都是趟过雷的</span>
+  </div>
+  <div>
     <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
-        湘ICP备2026026324号-1
+      湘ICP备2026026324号-1
     </a>
+  </div>
 </div>
+
+<style>
+.footer-extras {
+  text-align: center;
+  margin-top: 6px;
+  font-size: 0.85em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-social-label {
+  opacity: 0.6;
+}
+.footer-social-icons {
+  display: flex;
+  gap: 4px;
+}
+.footer-social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  transition: all 0.2s;
+  opacity: 0.6;
+}
+.footer-social-icon:hover {
+  opacity: 1;
+  background: rgba(0,102,255,0.1);
+}
+.footer-tagline {
+  opacity: 0.4;
+  font-size: 0.8em;
+}
+[data-theme="dark"] .footer-social-icon:hover {
+  background: rgba(255,255,255,0.1);
+}
+</style>

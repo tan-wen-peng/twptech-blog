@@ -1,0 +1,23 @@
+{{- /* SEO 增强 - 注入到 <head> */}}
+{{- /* Google site verification (已通过 config 处理) */}}
+
+{{- /* Open Graph & Twitter Cards 增强 */}}
+{{- if .IsHome }}
+<meta property="og:image" content="{{ "logo.svg" | absURL }}">
+<meta name="twitter:image" content="{{ "logo.svg" | absURL }}">
+{{- end }}
+
+{{- /* 结构化数据：网站名 */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "{{ .Site.Title }}",
+  "description": "{{ .Site.Params.description }}",
+  "url": "{{ .Site.BaseURL }}",
+  "author": {
+    "@type": "Person",
+    "name": "谭文鹏"
+  }
+}
+</script>
