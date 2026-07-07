@@ -15,6 +15,7 @@
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
 
 /* ===== Hero ===== */
 .hero-section {
@@ -90,9 +91,37 @@
   color: rgba(255,255,255,0.45);
   line-height: 1.65;
   max-width: 600px;
-  margin: 0 auto 2.5rem;
+  margin: 0 auto 2rem;
   font-weight: 300;
 }
+/* ===== Hero Tags ===== */
+.hero-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2.2rem;
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.6);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease;
+}
+.hero-tag:hover {
+  background: rgba(0,102,255,0.2);
+  border-color: rgba(0,102,255,0.4);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
 .hero-actions {
   display: flex;
   gap: 14px;
@@ -118,7 +147,8 @@
 }
 .hero-btn.primary:hover {
   background: #0052CC;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,102,255,0.3);
 }
 .hero-btn.secondary {
   background: transparent;
@@ -128,6 +158,7 @@
 .hero-btn.secondary:hover {
   border-color: rgba(255,255,255,0.5);
   color: #fff;
+  transform: translateY(-2px);
 }
 .hero-scroll {
   position: absolute;
@@ -145,6 +176,18 @@
   50% { transform: translateX(-50%) translateY(8px); }
 }
 
+/* ===== Navigation Hover ===== */
+.nav-menu a {
+  position: relative;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+.nav-menu a:hover {
+  background: rgba(0,102,255,0.08);
+  color: #0066FF !important;
+}
+
 /* ===== Articles Section ===== */
 .articles-section {
   background: #F8F9FA;
@@ -159,8 +202,6 @@
   flex-wrap: wrap;
   gap: 1rem;
 }
-
-/* Engineering divider */
 .articles-header::after {
   content: "";
   display: block;
@@ -170,7 +211,6 @@
   position: relative;
   margin-top: 0.5rem;
 }
-
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -178,7 +218,6 @@
   max-width: 1200px;
   margin: 0 auto;
 }
-
 .card {
   background: #fff;
   border-radius: 12px;
@@ -198,8 +237,23 @@
   width: 100%;
   height: 200px;
   object-fit: cover;
-  display: block;
-  background: #1a1a2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  overflow: hidden;
+  position: relative;
+}
+.card-cover-letter {
+  font-size: 4rem;
+  font-weight: 700;
+  color: rgba(0,102,255,0.3);
+  font-family: 'SF Mono', Consolas, monospace;
+  transition: all 0.3s ease;
+}
+.card:hover .card-cover-letter {
+  color: rgba(0,102,255,0.5);
+  transform: scale(1.1);
 }
 .card-body {
   padding: 1.5rem;
@@ -221,6 +275,11 @@
   color: #1A1A2E;
   font-weight: 500;
   letter-spacing: 0.3px;
+  transition: all 0.2s;
+}
+.card:hover .card-tag {
+  border-color: #0066FF;
+  color: #0066FF;
 }
 .card-title {
   font-size: 1.1rem;
@@ -256,19 +315,24 @@
 
 /* ===== About Section ===== */
 .about-section {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 4rem 1.5rem;
+}
+.about-container {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #eef0f2;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  padding: 3rem;
   display: flex;
   gap: 3rem;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
-  justify-content: center;
-  border-top: 1px solid #eef0f2;
 }
 .about-avatar {
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   background: linear-gradient(135deg, #0066FF, #4d94ff);
   display: flex;
@@ -276,24 +340,61 @@
   justify-content: center;
   flex-shrink: 0;
   color: #fff;
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   font-family: "SF Mono", "Consolas", monospace;
+  box-shadow: 0 4px 12px rgba(0,102,255,0.2);
 }
 .about-text {
   flex: 1;
   min-width: 280px;
 }
 .about-text h2 {
-  font-size: 1.3rem;
-  margin: 0 0 0.3rem;
+  font-size: 1.4rem;
+  margin: 0 0 0.2rem;
   color: #1A1A2E;
+}
+.about-role {
+  font-size: 0.85rem;
+  color: #0066FF;
+  font-weight: 500;
+  margin: 0 0 1rem;
 }
 .about-text p {
   font-size: 0.92rem;
   color: #6C757D;
   line-height: 1.7;
-  margin: 0 0 1.2rem;
+  margin: 0 0 1.5rem;
+}
+.about-skills {
+  margin-bottom: 1.5rem;
+}
+.about-skills h3 {
+  font-size: 0.85rem;
+  color: #1A1A2E;
+  font-weight: 600;
+  margin: 0 0 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.skill-tag {
+  background: #F0F4FF;
+  color: #0066FF;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.skill-tag:hover {
+  background: #0066FF;
+  color: #fff;
+  transform: translateY(-1px);
 }
 .about-links {
   display: flex;
@@ -316,6 +417,7 @@
 }
 .about-link.primary:hover {
   background: #0052CC;
+  transform: translateY(-1px);
 }
 .about-link.outline {
   border: 1px solid #d0d5dd;
@@ -324,108 +426,23 @@
 .about-link.outline:hover {
   border-color: #0066FF;
   color: #0066FF;
+  transform: translateY(-1px);
 }
 
-/* ===== Subscribe Section ===== */
-.subscribe-section {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  padding: 4rem 1.5rem;
-  text-align: center;
-}
-.subscribe-inner {
-  max-width: 640px;
-  margin: 0 auto;
-}
-.subscribe-inner h2 {
-  font-size: 1.5rem;
-  color: #fff;
-  margin: 0 0 0.4rem;
-  letter-spacing: -0.01em;
-}
-.subscribe-inner > p {
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.45);
-  margin: 0 0 2rem;
-  line-height: 1.6;
-}
-.subscribe-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px;
-  padding: 2rem;
-  text-align: left;
-}
-.subscribe-card h3 {
-  font-size: 1rem;
-  color: #fff;
-  margin: 0 0 0.2rem;
-}
-.subscribe-card .desc {
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.4);
-  margin: 0 0 1.2rem;
-}
-.resource-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.5rem;
-}
-.resource-list li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 7px 0;
-  font-size: 0.87rem;
-  color: rgba(255,255,255,0.6);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.resource-list li:last-child { border: none; }
-.resource-list li::before {
-  content: "📦";
-  font-size: 0.9rem;
-}
-.subscribe-form {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.subscribe-form input {
-  flex: 1;
-  min-width: 200px;
-  padding: 11px 16px;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 6px;
-  background: rgba(255,255,255,0.05);
-  color: #fff;
-  font-size: 0.88rem;
-  outline: none;
-}
-.subscribe-form input::placeholder { color: rgba(255,255,255,0.3); }
-.subscribe-form input:focus { border-color: #0066FF; }
-.subscribe-form button {
-  padding: 11px 26px;
-  background: #0066FF;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-size: 0.88rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: opacity 0.2s;
-  white-space: nowrap;
-}
-.subscribe-form button:hover { opacity: 0.9; }
-.subscribe-note {
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.25);
-  margin-top: 0.8rem;
+/* ===== Footer Enhancement ===== */
+.footer {
+  border-top: 1px solid #eef0f2 !important;
+  padding: 2rem 1.5rem !important;
 }
 
 @media (max-width: 768px) {
   .card-grid { grid-template-columns: 1fr; }
   .hero-title { font-size: clamp(1.8rem, 8vw, 2.6rem); }
-  .about-section { flex-direction: column; text-align: center; }
+  .about-container { padding: 2rem 1.5rem; text-align: center; justify-content: center; }
   .about-links { justify-content: center; }
+  .skills-list { justify-content: center; }
+  .hero-tags { gap: 6px; }
+  .hero-tag { font-size: 0.72rem; padding: 4px 10px; }
 }
 </style>
 
@@ -441,13 +458,19 @@
     <div class="hero-badge reveal reveal-delay-1">结构设计 · Creo · 工程图自动化</div>
     <h1 class="hero-title reveal reveal-delay-2" id="hero-title"><span style="white-space:nowrap">TWP <span class="highlight">技术笔记</span></span></h1>
     <p class="hero-sub reveal reveal-delay-3">
-      产线上踩过的坑、淌过的雷，才是工程师最值钱的资产。<br>
-      Creo 参数化建模 | 工程图自动化 | 工业自动化
+      产线上踩过的坑、淌过的雷，才是工程师最值钱的资产
     </p>
-    <div class="hero-actions reveal reveal-delay-4">
+    <!-- Hero Tags -->
+    <div class="hero-tags reveal reveal-delay-4">
+      <span class="hero-tag">🔧 Creo 参数化建模</span>
+      <span class="hero-tag">📐 工程图自动化</span>
+      <span class="hero-tag">⚙️ Top-Down 设计</span>
+      <span class="hero-tag">🏭 整机结构设计</span>
+    </div>
+    <div class="hero-actions reveal reveal-delay-5">
       <a href="#articles" class="hero-btn primary">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        最新文章
+        浏览全部文章
       </a>
       <a href="/about/" class="hero-btn secondary">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -471,10 +494,9 @@
   <div class="card-grid">
     {{- range $i, $v := $pages }}
     <article class="card reveal" style="transition-delay: {{ mul $i 100 }}ms">
-      {{- $cover := .Params.image | default "/images/default-cover.png" }}
       {{- $firstLetter := substr .Title 0 1 }}
-      <div class="card-cover" style="background:linear-gradient(135deg, #1a1a2e, #16213e);display:flex;align-items:center;justify-content:center;">
-        <span style="font-size:4rem;font-weight:700;color:rgba(0,102,255,0.3);font-family:'SF Mono',Consolas,monospace;">{{ $firstLetter }}</span>
+      <div class="card-cover">
+        <span class="card-cover-letter">{{ $firstLetter }}</span>
       </div>
       <div class="card-body">
         <div class="card-tags">
@@ -499,18 +521,31 @@
 <!-- About Author -->
 <section>
   <div class="about-section reveal">
-    <div class="about-avatar">T</div>
-    <div class="about-text">
-      <h2>关于 TWP</h2>
-      <p>
-        嗨，我是谭文鹏，一名扎根在制造业一线的机械结构工程师，目前 base 厦门。<br>
-        日常围绕 Creo 参数化建模展开，习惯用 Top-Down 思路做整机结构设计。<br>
-        如果你也对结构设计、Creo 二次开发或工程提效感兴趣，欢迎找我聊聊。
-      </p>
-      <div class="about-links">
-        <a href="/about/" class="about-link primary">了解更多 →</a>
-        <a href="https://github.com/tan-wen-peng" class="about-link outline" target="_blank">GitHub</a>
-        <a href="mailto:2129336720@qq.com" class="about-link outline">联系我</a>
+    <div class="about-container">
+      <div class="about-avatar">T</div>
+      <div class="about-text">
+        <h2>关于 TWP</h2>
+        <p class="about-role">机械结构工程师 · 工程图自动化</p>
+        <p>
+          嗨，我是谭文鹏，一名扎根在制造业一线的机械结构工程师，目前 base 厦门。<br>
+          日常围绕 Creo 参数化建模展开，习惯用 Top-Down 思路做整机结构设计。<br>
+          如果你也对结构设计、Creo 二次开发或工程提效感兴趣，欢迎找我聊聊。
+        </p>
+        <div class="about-skills">
+          <h3>擅长领域</h3>
+          <div class="skills-list">
+            <span class="skill-tag">Creo 参数化建模</span>
+            <span class="skill-tag">Top-Down 设计</span>
+            <span class="skill-tag">工程图自动化</span>
+            <span class="skill-tag">Creo 二次开发</span>
+            <span class="skill-tag">整机结构设计</span>
+          </div>
+        </div>
+        <div class="about-links">
+          <a href="/about/" class="about-link primary">了解更多 →</a>
+          <a href="https://github.com/tan-wen-peng" class="about-link outline" target="_blank">GitHub</a>
+          <a href="mailto:2129336720@qq.com" class="about-link outline">联系我</a>
+        </div>
       </div>
     </div>
   </div>
@@ -550,7 +585,6 @@
       this.y += this.vy;
       if (this.x < 0 || this.x > w) this.vx *= -1;
       if (this.y < 0 || this.y > h) this.vy *= -1;
-      // mouse repulsion
       const dx = this.x - mouse.x, dy = this.y - mouse.y;
       const dist = Math.sqrt(dx*dx + dy*dy);
       if (dist < MOUSE_DIST && dist > 0) {
@@ -603,7 +637,6 @@
   document.getElementById('hero').addEventListener('mouseleave', () => {
     mouse.x = -999; mouse.y = -999;
   });
-  // recalc resize on layout shift
   const ro = new ResizeObserver(resize);
   ro.observe(canvas.parentElement);
 })();
