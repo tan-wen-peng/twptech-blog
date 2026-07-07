@@ -27,8 +27,9 @@
   align-items: center;
   text-align: center;
   overflow: hidden;
-  background: linear-gradient(160deg, #0f0f23 0%, #16213e 100%);
+  background: linear-gradient(160deg, var(--bg-dark) 0%, var(--bg-medium) 100%);
   margin: 0;
+  border-bottom: 2px solid var(--color-primary);
 }
 #hero-particles {
   position: absolute;
@@ -40,7 +41,7 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 50% at 30% 60%, rgba(0,102,255,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 30% 60%, rgba(64,158,255,0.10) 0%, transparent 60%),
     radial-gradient(ellipse 50% 40% at 80% 30%, rgba(255,107,53,0.06) 0%, transparent 50%);
   z-index: 0;
 }
@@ -65,7 +66,7 @@
   font-size: 0.7rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
+  color: var(--text-muted);
   border: 1px solid rgba(255,255,255,0.1);
   padding: 5px 14px;
   border-radius: 3px;
@@ -77,18 +78,19 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.1;
-  color: #fff;
+  color: var(--text-primary);
   margin: 0 0 0.8rem;
+  text-shadow: 0 0 20px rgba(64, 158, 255, 0.3);
 }
 .hero-title .highlight {
-  background: linear-gradient(135deg, #0066FF 0%, #4d94ff 50%, #80b3ff 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 50%, var(--accent-cyan) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .hero-sub {
   font-size: clamp(0.95rem, 2vw, 1.15rem);
-  color: rgba(255,255,255,0.45);
+  color: var(--text-secondary);
   line-height: 1.65;
   max-width: 600px;
   margin: 0 auto 2rem;
@@ -106,9 +108,9 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
-  color: rgba(255,255,255,0.6);
+  background: var(--bg-hover);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 0.8rem;
@@ -116,9 +118,9 @@
   transition: all 0.25s ease;
 }
 .hero-tag:hover {
-  background: rgba(0,102,255,0.2);
-  border-color: rgba(0,102,255,0.4);
-  color: #fff;
+  background: rgba(64,158,255,0.2);
+  border-color: var(--color-primary);
+  color: var(--text-primary);
   transform: translateY(-1px);
 }
 
@@ -141,23 +143,24 @@
   transition: all 0.25s ease;
 }
 .hero-btn.primary {
-  background: #0066FF;
+  background: var(--color-primary);
   color: #fff;
   border: none;
+  box-shadow: 0 4px 12px rgba(64, 158, 255, 0.4);
 }
 .hero-btn.primary:hover {
-  background: #0052CC;
+  background: var(--color-primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0,102,255,0.3);
+  box-shadow: 0 8px 20px rgba(64, 158, 255, 0.6);
 }
 .hero-btn.secondary {
   background: transparent;
-  color: rgba(255,255,255,0.8);
-  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
 }
 .hero-btn.secondary:hover {
-  border-color: rgba(255,255,255,0.5);
-  color: #fff;
+  border-color: var(--color-primary);
+  color: var(--text-primary);
   transform: translateY(-2px);
 }
 .hero-scroll {
@@ -166,7 +169,7 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
-  color: rgba(255,255,255,0.2);
+  color: var(--text-muted);
   font-size: 1.3rem;
   animation: bounce 2s infinite;
   cursor: default;
@@ -176,21 +179,9 @@
   50% { transform: translateX(-50%) translateY(8px); }
 }
 
-/* ===== Navigation Hover ===== */
-.nav-menu a {
-  position: relative;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-.nav-menu a:hover {
-  background: rgba(0,102,255,0.08);
-  color: #0066FF !important;
-}
-
 /* ===== Articles Section ===== */
 .articles-section {
-  background: #F8F9FA;
+  background: var(--bg-dark);
   padding: 4rem 1.5rem;
 }
 .articles-header {
@@ -207,7 +198,7 @@
   display: block;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, #d0d5dd 20%, #d0d5dd 80%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, var(--border-color) 20%, var(--border-color) 80%, transparent 100%);
   position: relative;
   margin-top: 0.5rem;
 }
@@ -219,11 +210,11 @@
   margin: 0 auto;
 }
 .card {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid #eef0f2;
-  box-shadow: 0 4px 20px rgba(0, 102, 255, 0.06);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px var(--shadow-color);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   position: relative;
   display: flex;
@@ -231,7 +222,8 @@
 }
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0, 102, 255, 0.12);
+  box-shadow: 0 8px 30px var(--shadow-color);
+  border-color: var(--color-primary);
 }
 .card-cover {
   width: 100%;
@@ -240,19 +232,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  background: linear-gradient(135deg, var(--bg-dark), var(--bg-medium));
   overflow: hidden;
   position: relative;
 }
 .card-cover-letter {
   font-size: 4rem;
   font-weight: 700;
-  color: rgba(0,102,255,0.3);
+  color: rgba(64,158,255,0.25);
   font-family: 'SF Mono', Consolas, monospace;
   transition: all 0.3s ease;
 }
 .card:hover .card-cover-letter {
-  color: rgba(0,102,255,0.5);
+  color: rgba(64,158,255,0.5);
   transform: scale(1.1);
 }
 .card-body {
@@ -271,37 +263,37 @@
   font-size: 0.7rem;
   padding: 2px 12px;
   border-radius: 3px;
-  border: 1px solid #d0d5dd;
-  color: #1A1A2E;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
   font-weight: 500;
   letter-spacing: 0.3px;
   transition: all 0.2s;
 }
 .card:hover .card-tag {
-  border-color: #0066FF;
-  color: #0066FF;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 .card-title {
   font-size: 1.1rem;
   font-weight: 600;
   line-height: 1.4;
-  color: #1A1A2E;
+  color: var(--text-primary);
   margin: 0 0 0.5rem;
   transition: color 0.2s;
 }
 .card:hover .card-title {
-  color: #0066FF;
+  color: var(--color-primary-light);
 }
 .card-excerpt {
   font-size: 0.88rem;
-  color: #6C757D;
+  color: var(--text-muted);
   line-height: 1.65;
   flex: 1;
   margin: 0 0 1rem;
 }
 .card-meta {
   font-size: 0.78rem;
-  color: #6C757D;
+  color: var(--text-muted);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -320,10 +312,10 @@
   padding: 4rem 1.5rem;
 }
 .about-container {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 16px;
-  border: 1px solid #eef0f2;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px var(--shadow-color);
   padding: 3rem;
   display: flex;
   gap: 3rem;
@@ -334,7 +326,7 @@
   width: 110px;
   height: 110px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0066FF, #4d94ff);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -343,7 +335,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   font-family: "SF Mono", "Consolas", monospace;
-  box-shadow: 0 4px 12px rgba(0,102,255,0.2);
+  box-shadow: 0 4px 12px rgba(64,158,255,0.3);
 }
 .about-text {
   flex: 1;
@@ -352,17 +344,17 @@
 .about-text h2 {
   font-size: 1.4rem;
   margin: 0 0 0.2rem;
-  color: #1A1A2E;
+  color: var(--text-primary);
 }
 .about-role {
   font-size: 0.85rem;
-  color: #0066FF;
+  color: var(--color-primary);
   font-weight: 500;
   margin: 0 0 1rem;
 }
 .about-text p {
   font-size: 0.92rem;
-  color: #6C757D;
+  color: var(--text-secondary);
   line-height: 1.7;
   margin: 0 0 1.5rem;
 }
@@ -371,7 +363,7 @@
 }
 .about-skills h3 {
   font-size: 0.85rem;
-  color: #1A1A2E;
+  color: var(--text-secondary);
   font-weight: 600;
   margin: 0 0 0.8rem;
   text-transform: uppercase;
@@ -383,8 +375,9 @@
   gap: 8px;
 }
 .skill-tag {
-  background: #F0F4FF;
-  color: #0066FF;
+  background: var(--bg-hover);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
   padding: 5px 14px;
   border-radius: 20px;
   font-size: 0.8rem;
@@ -392,9 +385,10 @@
   transition: all 0.2s;
 }
 .skill-tag:hover {
-  background: #0066FF;
+  background: var(--color-primary);
   color: #fff;
   transform: translateY(-1px);
+  border-color: var(--color-primary);
 }
 .about-links {
   display: flex;
@@ -412,27 +406,22 @@
   transition: all 0.2s;
 }
 .about-link.primary {
-  background: #0066FF;
+  background: var(--color-primary);
   color: #fff;
+  box-shadow: 0 2px 8px rgba(64,158,255,0.3);
 }
 .about-link.primary:hover {
-  background: #0052CC;
+  background: var(--color-primary-dark);
   transform: translateY(-1px);
 }
 .about-link.outline {
-  border: 1px solid #d0d5dd;
-  color: #1A1A2E;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
 }
 .about-link.outline:hover {
-  border-color: #0066FF;
-  color: #0066FF;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
   transform: translateY(-1px);
-}
-
-/* ===== Footer Enhancement ===== */
-.footer {
-  border-top: 1px solid #eef0f2 !important;
-  padding: 2rem 1.5rem !important;
 }
 
 @media (max-width: 768px) {
@@ -485,10 +474,10 @@
 <section class="articles-section" id="articles">
   <div class="articles-header">
     <div>
-      <h2 style="font-size:1.4rem;margin:0;color:#1A1A2E;font-weight:600;letter-spacing:-0.01em;">最新文章</h2>
-      <p style="font-size:0.85rem;color:#6C757D;margin:4px 0 0;">产线上的真实经验，每一篇都是趟过雷的</p>
+      <h2 style="font-size:1.4rem;margin:0;color:var(--text-primary);font-weight:600;letter-spacing:-0.01em;">最新文章</h2>
+      <p style="font-size:0.85rem;color:var(--text-muted);margin:4px 0 0;">产线上的真实经验，每一篇都是趟过雷的</p>
     </div>
-    <a href="/posts/" style="font-size:0.85rem;color:#0066FF;text-decoration:none;font-weight:500;padding:8px 20px;border:1px solid #0066FF;border-radius:6px;transition:all 0.2s;">查看全部 →</a>
+    <a href="/posts/" style="font-size:0.85rem;color:var(--color-primary);text-decoration:none;font-weight:500;padding:8px 20px;border:1px solid var(--color-primary);border-radius:6px;transition:all 0.2s;">查看全部 →</a>
   </div>
 
   <div class="card-grid">
@@ -596,7 +585,7 @@
     draw() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
-      ctx.fillStyle = 'rgba(0, 102, 255, 0.25)';
+      ctx.fillStyle = 'rgba(64, 158, 255, 0.25)';
       ctx.fill();
     }
   }
@@ -613,7 +602,7 @@
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(0, 102, 255, ${(1 - dist/CONNECT_DIST) * 0.12})`;
+          ctx.strokeStyle = `rgba(64, 158, 255, ${(1 - dist/CONNECT_DIST) * 0.12})`;
           ctx.lineWidth = 0.6;
           ctx.stroke();
         }
