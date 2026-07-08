@@ -484,8 +484,13 @@
     {{- range $i, $v := $pages }}
     <article class="card reveal" style="transition-delay: {{ mul $i 100 }}ms">
       {{- $firstLetter := substr .Title 0 1 }}
-      <div class="card-cover">
+      {{- $coverImg := .Params.cover.image }}
+      <div class="card-cover"{{ if $coverImg }} style="background: none; padding: 0;"{{ end }}>
+        {{- if $coverImg }}
+        <img loading="lazy" src="{{ $coverImg | absURL }}" alt="{{ .Title }}" style="width:100%;height:100%;object-fit:cover;" />
+        {{- else }}
         <span class="card-cover-letter">{{ $firstLetter }}</span>
+        {{- end }}
       </div>
       <div class="card-body">
         <div class="card-tags">
