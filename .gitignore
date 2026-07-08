@@ -17,3 +17,7 @@ Thumbs.db
 
 # 本地变更日志（不推送）
 CHANGELOG.local.md
+
+# 本地配置文件
+*.local.sh
+*.local.*
