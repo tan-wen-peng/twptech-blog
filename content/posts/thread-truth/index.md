@@ -4,6 +4,11 @@ date: 2026-07-07T16:50:00+08:00
 draft: false
 tags: ["Creo", "结构设计", "螺纹", "经验"]
 description: "从被螺纹的乱线条吓住，到学会用三角形骨架画出第一根M10粗牙螺纹"
+cover:
+  image: "/images/thread-truth/cover.jpg"
+  alt: "螺纹不是乱线，是三角形——文章封面"
+  caption: "文章封面图"
+  relative: false
 ---
 
 {{< figure src="/images/thread-truth/udf-thumbnail.png" alt="Creo 中 M10 粗牙螺纹 UDF" caption="在 Creo 中把这套画法封装成 UDF，命名为 M10，以后改参数就能复用。" width="700" >}}
