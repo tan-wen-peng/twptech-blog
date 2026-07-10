@@ -1,0 +1,289 @@
+/* ============================================
+   TWP Technical Notes — Custom Brand System
+   Brand Blue: #0066FF | Accent Orange: #FF6B35
+   ============================================ */
+
+/* ----- 1. Font Stack & Typography ----- */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans SC", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  color: #1A1A2E;
+  line-height: 1.8;
+  font-size: 16px;
+}
+.main {
+  font-family: inherit;
+}
+
+/* Title hierarchy */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  letter-spacing: -0.01em;
+}
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Article titles in lists */
+.post-entry .entry-header h2,
+.entry-hint-parent {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1A1A2E;
+  transition: color 0.2s;
+}
+.post-entry:hover .entry-header h2 {
+  color: #0066FF;
+}
+
+/* Subtle text */
+.post-meta,
+.entry-footer,
+.page-header .post-description {
+  color: #6C757D;
+}
+
+/* ----- 2. Brand Colors Overrides ----- */
+
+:root {
+  --brand: #0066FF;
+  --brand-hover: #0052CC;
+  --accent: #FF6B35;
+  --bg-light: #F8F9FA;
+  --card-bg: #FFFFFF;
+  --text-primary: #1A1A2E;
+  --text-secondary: #6C757D;
+  --code-bg: #F1F5F9;
+}
+
+/* Primary buttons/links */
+a,
+.entry-link {
+  color: var(--brand);
+}
+a:hover {
+  color: var(--brand-hover);
+}
+
+.post-entry {
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid #eef0f2;
+  box-shadow: 0 4px 20px rgba(0, 102, 255, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.post-entry:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 102, 255, 0.12);
+}
+
+/* ----- 3. Code Blocks (Developer Face) ----- */
+
+.post-content pre {
+  background: #1E1E2E;
+  border-radius: 12px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  position: relative;
+  margin: 1.5rem 0;
+  border: none;
+}
+.post-content pre code {
+  color: #e4e4e7;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  background: transparent;
+  padding: 0;
+}
+
+/* Language tag on code blocks */
+.post-content pre {
+  overflow: hidden !important;
+}
+.post-content pre[data-lang]::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #0066FF;
+  color: white;
+  padding: 4px 14px;
+  border-radius: 0 12px 0 12px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Copy button in code blocks */
+.copy-code {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  z-index: 2;
+}
+.post-content pre:hover .copy-code {
+  opacity: 1;
+}
+
+/* Inline code */
+code {
+  background: #F1F5F9;
+  color: #0066FF;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* ----- 4. Engineering Visual Elements ----- */
+
+/* HR divider: thin line + dot (like mechanical drawing) */
+.post-content hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #d0d5dd 20%,
+    #d0d5dd 80%,
+    transparent 100%
+  );
+  margin: 2.5rem 0;
+  position: relative;
+}
+.post-content hr::after {
+  content: "●";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  font-size: 8px;
+  color: #0066FF;
+  background: #fff;
+  padding: 2px 6px;
+}
+
+/* Blockquote — pit-warning style */
+.post-content blockquote {
+  border-left: 4px solid #FF6B35;
+  background: #FFF8F5;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  color: #4a3728;
+}
+.post-content blockquote p {
+  margin: 0.3rem 0;
+}
+/* Blockquote with ⚠️ prefix — warning specific */
+.post-content blockquote:has(strong:first-child) {
+  border-left-color: #0066FF;
+  background: #F5F9FF;
+}
+
+/* Tags as nameplates */
+.post-tags a,
+.entry-tags a,
+.tag-list a,
+.terms-tags a {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 3px 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 4px;
+  background: #fff;
+  color: #1A1A2E;
+  transition: all 0.2s;
+  letter-spacing: 0.3px;
+}
+.post-tags a:hover,
+.entry-tags a:hover,
+.tag-list a:hover,
+.terms-tags a:hover {
+  border-color: #0066FF;
+  color: #0066FF;
+  background: #F5F9FF;
+}
+
+/* Category/Series tags */
+.series-list a,
+.category-list a {
+  font-weight: 500;
+}
+
+/* ----- 5. Table of Contents Styling ----- */
+
+.toc {
+  border-left: 3px solid #0066FF;
+  background: #F8FAFC;
+  padding: 1rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1.5rem 0;
+}
+.toc details summary {
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* ----- 6. Post Meta / Footer Branding ----- */
+
+.post-entry .entry-footer {
+  border: none;
+  padding-top: 0;
+}
+
+/* First entry special */
+.first-entry {
+  border-radius: 12px;
+  border: 1px solid #eef0f2;
+  box-shadow: 0 4px 20px rgba(0, 102, 255, 0.06);
+}
+
+/* ----- 7. Article Cover in Entries ----- */
+
+.post-entry .entry-cover {
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  margin: 0;
+}
+.post-entry .entry-cover img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ----- 8. Responsive Adjustments ----- */
+
+@media (max-width: 768px) {
+  body { font-size: 15px; }
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.4rem; }
+  .post-content pre { padding: 1rem; border-radius: 8px; }
+}
