@@ -96,34 +96,6 @@
   margin: 0 auto 2rem;
   font-weight: 300;
 }
-/* ===== Hero Tags ===== */
-.hero-tags {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 2.2rem;
-}
-.hero-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  background: var(--bg-hover);
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  letter-spacing: 0.5px;
-  transition: all 0.25s ease;
-}
-.hero-tag:hover {
-  background: rgba(64,158,255,0.2);
-  border-color: var(--color-primary);
-  color: var(--text-primary);
-  transform: translateY(-1px);
-}
-
 .hero-actions {
   display: flex;
   gap: 14px;
@@ -437,6 +409,11 @@
 
 {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
 {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" }}
+{{- $postCount := len $pages }}
+{{- $totalWords := 0 }}
+{{- range $pages }}
+  {{- $totalWords = add $totalWords (len (split .Plain " ")) }}
+{{- end }}
 
 <!-- Hero -->
 <section class="hero-section" id="hero">
@@ -470,7 +447,75 @@
   <div class="hero-scroll">⌄</div>
 </section>
 
-<!-- Articles -->
+<!-- Stats Bar (Zvec-inspired: show key metrics) -->
+<section class="stats-section reveal">
+  <div class="stats-grid">
+    <div class="stats-item">
+      <div class="stats-number">{{ $postCount }}</div>
+      <div class="stats-label">文章总数</div>
+    </div>
+    <div class="stats-item">
+      <div class="stats-number">{{ len (where site.RegularPages "Type" "in" site.Params.mainSections) }}+</div>
+      <div class="stats-label">真实经验</div>
+    </div>
+    <div class="stats-item">
+      <div class="stats-number">{{ len site.Taxonomies.tags }}</div>
+      <div class="stats-label">标签分类</div>
+    </div>
+    <div class="stats-item">
+      <div class="stats-number">{{ len site.Taxonomies.series }}</div>
+      <div class="stats-label">系列教程</div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section (Zvec-inspired: core capabilities) -->
+<section class="features-section reveal">
+  <div class="features-header">
+    <h2>擅长领域</h2>
+    <p>在制造业一线沉淀的实战技能</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <span class="feature-icon">🔧</span>
+      <h3>Creo 参数化建模</h3>
+      <p>从概念草图到 3D 建模，完整 Top-Down 整机结构设计流程</p>
+      <a class="feature-link" href="/categories/creo/" aria-label="Creo 参数化建模"></a>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📐</span>
+      <h3>工程图自动化</h3>
+      <p>Creo 二次开发实现图纸自动转档，出图效率提升 70%</p>
+      <a class="feature-link" href="/categories/drawing/" aria-label="工程图自动化"></a>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">⚙️</span>
+      <h3>Top-Down 设计</h3>
+      <p>从功能需求出发，自上而下规划零件与装配体系</p>
+      <a class="feature-link" href="/categories/structure/" aria-label="Top-Down 设计"></a>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🏭</span>
+      <h3>整机结构设计</h3>
+      <p>配电箱、消费电子等产品从结构设计到量产落地的全流程</p>
+      <a class="feature-link" href="/categories/structure/" aria-label="整机结构设计"></a>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">💻</span>
+      <h3>Creo 二次开发</h3>
+      <p>C# / C++ 开发自动化工具，消灭重复性工程图劳动</p>
+      <a class="feature-link" href="/categories/creo/" aria-label="Creo 二次开发"></a>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📊</span>
+      <h3>BOM 体系搭建</h3>
+      <p>从工程图到物料清单，数据驱动的生产流转</p>
+      <a class="feature-link" href="/categories/" aria-label="BOM 体系"></a>
+    </div>
+  </div>
+</section>
+
+<!-- Latest Articles -->
 <section class="articles-section" id="articles">
   <div class="articles-header">
     <div>
@@ -481,7 +526,7 @@
   </div>
 
   <div class="card-grid">
-    {{- range $i, $v := $pages }}
+    {{- range $i, $v := first 3 $pages }}
     <article class="card reveal" style="transition-delay: {{ mul $i 100 }}ms">
       {{- $firstLetter := substr .Title 0 1 }}
       {{- $coverImg := .Params.cover.image }}
@@ -512,6 +557,28 @@
   </div>
 </section>
 
+<!-- Series Preview (Zvec-inspired: like their doc sections) -->
+{{- $series := site.Taxonomies.series }}
+{{- if gt (len $series) 0 }}
+<section class="series-section reveal">
+  <div class="series-header">
+    <h2>系列教程</h2>
+    <p>按主题串联，从入门到进阶完整学习路径</p>
+  </div>
+  <div class="series-grid">
+    {{- range $name, $taxonomy := $series }}
+    <div class="series-card">
+      <div class="series-card-icon">📚</div>
+      <h3>{{ $name }}</h3>
+      <p>{{ (index $taxonomy.Pages 0).Summary | plainify | truncate 60 }}</p>
+      <div class="series-count">{{ len $taxonomy.Pages }} 篇</div>
+      <a class="series-link" href="{{ (index $taxonomy.Pages 0).Site.BaseURL }}series/{{ $name | urlize }}/" aria-label="{{ $name }}"></a>
+    </div>
+    {{- end }}
+  </div>
+</section>
+{{- end }}
+
 <!-- About Author -->
 <section>
   <div class="about-section reveal">
@@ -537,7 +604,10 @@
         </div>
         <div class="about-links">
           <a href="/about/" class="about-link primary">了解更多 →</a>
-          <a href="https://github.com/tan-wen-peng" class="about-link outline" target="_blank">GitHub</a>
+          <a href="https://github.com/tan-wen-peng" class="about-link outline" target="_blank">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
           <a href="mailto:2129336720@qq.com" class="about-link outline">联系我</a>
         </div>
       </div>

@@ -92,45 +92,39 @@ C# / C++ 为主，Halcon 是核心工具。不聊前端、不写 AI 玩具、不
 [menu]
   [[menu.main]]
     identifier = "posts"
-    name = "📂 文章归档"
+    name = "📂 文章"
     url = "/posts/"
     weight = 10
-
-  [[menu.main]]
-    identifier = "about"
-    name = "ℹ️ 关于本站"
-    url = "/about/"
-    weight = 20
-
-  [[menu.main]]
-    identifier = "tags"
-    name = "🏷️ 标签"
-    url = "/tags/"
-    weight = 30
-
-  [[menu.main]]
-    identifier = "categories"
-    name = "📁 分类"
-    url = "/categories/"
-    weight = 25
 
   [[menu.main]]
     identifier = "series"
     name = "📚 系列"
     url = "/series/"
-    weight = 27
+    weight = 20
 
   [[menu.main]]
     identifier = "download"
     name = "📥 下载"
     url = "/download/"
-    weight = 35
+    weight = 30
+
+  [[menu.main]]
+    identifier = "about"
+    name = "👤 关于"
+    url = "/about/"
+    weight = 40
+
+  [[menu.main]]
+    identifier = "github"
+    name = "GitHub"
+    url = "https://github.com/tan-wen-peng"
+    weight = 55
 
   [[menu.main]]
     identifier = "search"
-    name = "🔍 搜索"
+    name = "🔍"
     url = "/search/"
-    weight = 40
+    weight = 60
 
 [taxonomies]
   tag = "tags"
