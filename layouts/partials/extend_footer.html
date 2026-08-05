@@ -15,9 +15,14 @@
   <div class="footer-tagline">
     <span>产线上的真实经验，每一篇都是趟过雷的</span>
   </div>
-  <div>
+  <div class="footer-beian">
     <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
       湘ICP备2026026324号-1
+    </a>
+    <span class="beian-sep">|</span>
+    <a href="https://beian.mps.gov.cn/#/query/webSearch?code=43042402000045" rel="noreferrer" target="_blank">
+      <img src="{{ "/images/beian.png" | relURL }}" alt="公安备案" class="beian-icon">
+      湘公网安备43042402000045号
     </a>
   </div>
 </div>
@@ -61,5 +66,30 @@
 .footer-tagline {
   color: var(--text-muted);
   font-size: 0.8em;
+}
+.footer-beian {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.footer-beian a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-muted);
+}
+.footer-beian a:hover {
+  color: var(--color-primary);
+}
+.beian-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+.beian-sep {
+  color: var(--text-muted);
+  opacity: 0.5;
 }
 </style>
