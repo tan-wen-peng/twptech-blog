@@ -9,7 +9,7 @@ set -e
 
 cd "$(dirname "$0")"
 
-BUCKET="your-bucket-12345678"    # ← 替换为你的 COS Bucket 名
+BUCKET="twptech-blog-1407052797"   # twptech 博客 COS Bucket
 REGION="ap-guangzhou"            # ← 替换为你的 COS 区域
 
 echo "🔨 构建..."
@@ -23,6 +23,6 @@ tccli cos sync_upload \
 
 echo "🧹 清除 CDN 缓存..."
 tccli cdn PurgeUrlsCache \
-    --Urls '["https://www.yourdomain.com/*"]' 2>/dev/null || true
+    --Urls '["https://www.twptech.site/*"]' 2>/dev/null || true
 
 echo "✅ 完成！"
