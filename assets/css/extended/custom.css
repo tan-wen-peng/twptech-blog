@@ -435,3 +435,18 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== 导航菜单 lucide 线性图标 ===== */
+.menu .menu-icon {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 5px;
+  vertical-align: -2px;
+  opacity: 0.85;
+}
+.menu a:hover .menu-icon {
+  opacity: 1;
+}
+.menu .menu-icon svg {
+  display: block;
+}

@@ -1,10 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
-  <defs>
-    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#4a9eff"/>
-      <stop offset="100%" stop-color="#6c5ce7"/>
-    </linearGradient>
-  </defs>
-  <rect width="35" height="35" rx="6" fill="url(#logoGrad)"/>
-  <text x="17.5" y="24" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#fff" text-anchor="middle">T</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#409EFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <!-- 绘图圆规 DraftingCompass：工程制图 -->
+  <circle cx="12" cy="5" r="2"/>
+  <path d="m3 21 8.02-14.26"/>
+  <path d="m12.99 6.74 1.93 3.44"/>
+  <path d="M21 21c-1.5-1.5-3-3-3-3s-1.5 1.5-3 3"/>
+  <path d="M21 21H3"/>
 </svg>
