@@ -1,6 +1,6 @@
 ---
 title: "📥 免费资源下载"
-description: "工业视觉案例库配套源码、工程文件、工具模板下载"
+description: "机械设计自动化自研工具与模板：NX 出图示例、爆炸参数样例、钣金折弯速查表"
 layout: "archives"
 placeholder: ""
 ---
@@ -44,6 +44,10 @@ placeholder: ""
   align-items: center;
   gap: 8px;
 }
+.resource-card h3 a {
+  box-shadow: none;
+  text-decoration: none;
+}
 .resource-card p {
   font-size: 0.85rem;
   color: #666;
@@ -71,92 +75,74 @@ placeholder: ""
   color: #92400e;
   font-weight: 500;
 }
-.empty-state {
-  text-align: center;
-  padding: 3rem;
-  color: #888;
+.resource-badge.live {
+  background: #dcfce7;
+  color: #166534;
 }
 </style>
 
 <div class="download-hero">
-  <h1>📥 免费资源包</h1>
-  <p>每篇文章配套的源码、工程文件、标定模板 — 不量产线上不实用的小玩具，只给产线上能直接落地的货。</p>
+  <h1>📥 自研工具与模板</h1>
+  <p>每篇文章配套的源码、样例与速查表——不是演示玩具，都是产线上真实趟过雷之后沉淀下来的东西。</p>
 </div>
 
-## 已规划的资源清单
-
-资源在整理中，留下邮箱→上架后第一时间通知你。
+## 已上架
 
 <div class="resource-grid">
 
 <div class="resource-card">
-<h3>🖥️ Halcon 接海康相机 — C# Demo</h3>
-<p>完整可编译的 Visual Studio 2022 项目，展示 GigE Vision 相机取流、Halcon 采集、参数配置全流程。</p>
+<h3>📐 NX 中心线示例源码（C++）</h3>
+<p>NX12 NXOpen 制图环境创建中心线的完整模块源码，含"任意视图拾取投影边"的关联修正写法，配套《我给 NX 写出图插件》一文。</p>
 <div class="resource-meta">
-  <span class="resource-tag">C#</span>
-  <span class="resource-tag">Halcon</span>
-  <span class="resource-tag">海康</span>
-  <span class="resource-badge">整理中</span>
+  <span class="resource-tag">NXOpen</span>
+  <span class="resource-tag">C++</span>
+  <span class="resource-badge live">可下载</span>
 </div>
+<h3><a href="/downloads/nx-centerline-example.cpp">⬇ 下载 nx-centerline-example.cpp</a></h3>
 </div>
 
 <div class="resource-card">
-<h3>🎯 模板匹配 C# 工程</h3>
-<p>Shape-Based Matching 实战项目，图像采集→模板注册→匹配执行→坐标输出，完整链路全部可运行。</p>
+<h3>💥 爆炸参数提取样例</h3>
+<p>NX 装配爆炸图组件显示名与 dx/dy/dz 偏移参数的提取结果样例，直观展示"爆炸参数"模块的输出格式。</p>
 <div class="resource-meta">
-  <span class="resource-tag">C#</span>
-  <span class="resource-tag">Halcon</span>
-  <span class="resource-tag">模板匹配</span>
-  <span class="resource-badge">整理中</span>
+  <span class="resource-tag">NX</span>
+  <span class="resource-tag">爆炸图</span>
+  <span class="resource-badge live">可下载</span>
 </div>
+<h3><a href="/downloads/explosion-params-example.txt">⬇ 下载 explosion-params-example.txt</a></h3>
 </div>
 
 <div class="resource-card">
-<h3>🔗 Modbus TCP 通信封装</h3>
-<p>PLC ↔ 上位机通信类库，带超时重连、心跳检测、字节序处理，可直接嵌入现有项目。</p>
+<h3>📊 钣金折弯扣除速查表</h3>
+<p>SPCC / SUS304 / AL5052 常用板厚的折弯扣除值与 K 因子速查（xlsx），直接进 Excel 或 ERP 用。</p>
 <div class="resource-meta">
-  <span class="resource-tag">C#</span>
-  <span class="resource-tag">Modbus</span>
-  <span class="resource-tag">PLC</span>
-  <span class="resource-badge">整理中</span>
+  <span class="resource-tag">钣金</span>
+  <span class="resource-tag">DFM</span>
+  <span class="resource-badge live">可下载</span>
 </div>
+<h3><a href="/downloads/bend-allowance-table.xlsx">⬇ 下载 bend-allowance-table.xlsx</a></h3>
 </div>
 
 <div class="resource-card">
-<h3>🏷️ 标定板 PDF + 九点标定模板</h3>
-<p>可直接打印的标定板 PDF（A4/10mm方格），配合九点标定的坐标记录表和 Halcon 标定脚本。</p>
+<h3>🔧 NX 制图自动化工具集（全部源码）</h3>
+<p>7 步出图向导 + 打标图、爆炸参数、爆炸图、球标模块，9333 行 C++，GitHub 开源，持续更新。</p>
 <div class="resource-meta">
-  <span class="resource-tag">Halcon</span>
-  <span class="resource-tag">标定</span>
-  <span class="resource-badge">整理中</span>
+  <span class="resource-tag">GitHub</span>
+  <span class="resource-tag">开源</span>
+  <span class="resource-badge live">可下载</span>
 </div>
-</div>
-
-<div class="resource-card">
-<h3>💡 打光方案对照表</h3>
-<p>金属/塑料/PCB/玻璃/橡胶 五种材料的打光选型对照表，包含光源类型、角度、亮度参考值。</p>
-<div class="resource-meta">
-  <span class="resource-tag">打光</span>
-  <span class="resource-tag">光源选型</span>
-  <span class="resource-badge">整理中</span>
-</div>
-</div>
-
-<div class="resource-card">
-<h3>🔧 Visual Studio 环境配置脚本</h3>
-<p>一键配置 Halcon .NET 引用、海康 MVS SDK 环境变量、GigE 网卡优化注册表脚本。</p>
-<div class="resource-meta">
-  <span class="resource-tag">工具</span>
-  <span class="resource-tag">环境配置</span>
-  <span class="resource-badge">整理中</span>
-</div>
+<h3><a href="https://github.com/tan-wen-peng/UG_Draw_NXopen_Dill" target="_blank">⬇ 前往仓库 UG_Draw_NXopen_Dill</a></h3>
 </div>
 
 </div>
 
-> **收到资源上架通知** 👉 首页底部有邮件订阅入口，上架后第一时间推送下载链接。
-> 或者在 GitHub 关注 [github.com/tan-wen-peng](https://github.com/tan-wen-peng)。
+## 整理中
+
+- **Creo 工程图模板** — 从公司项目沉淀的通用图框/标题栏模板，脱敏后上架。
+- **M10 螺纹 UDF** — 配合《螺纹不是乱线，是三角形》一文的参数化 UDF 文件。
+
+> 上架进度会在文章末尾同步。有问题发邮件到 **2129336372@qq.com**。
 
 ---
 
-*预计 2026 年 7 月起陆续上架，每期文章发布后 1-2 周内配套资源整理完毕。*
+*资源均为个人整理，标注来源与版本日期；涉及公司图纸信息的内容一律脱敏后再发布。*

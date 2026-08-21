@@ -3,6 +3,8 @@ title: "螺纹不是乱线，是三角形——记我画对第一根粗牙螺纹
 date: 2026-07-07T16:50:00+08:00
 draft: false
 tags: ["Creo", "结构设计", "螺纹", "经验"]
+categories: ["结构设计"]
+series: ["structure-dfm"]
 description: "从被螺纹的乱线条吓住，到学会用三角形骨架画出第一根M10粗牙螺纹"
 cover:
   image: "/images/thread-truth/cover.jpg"

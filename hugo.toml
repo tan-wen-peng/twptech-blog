@@ -1,6 +1,6 @@
 baseURL = "https://www.twptech.site/"
 locale = "zh-CN"
-title = "TWP技术笔记 · 视觉·PLC·运动控制"
+title = "TWP技术笔记 · 机械结构 · 自动化"
 theme = "PaperMod"
 defaultContentLanguage = "zh"
 enableInlineShortcodes = true
@@ -10,7 +10,7 @@ hasCJKLanguage = true
 [params]
   description = "机械结构设计 | Creo参数化建模 | 工程图自动化 — 只讲产线上真实趟过的坑"
   author = "TWP"
-  keywords = ["机械结构设计","Creo","参数化建模","Top-Down设计","工程图自动化","BOM体系","SolidWorks","Creo二次开发","结构仿真","工业自动化","机械工程师","结构设计"]
+  keywords = ["机械结构设计","Creo","参数化建模","Top-Down设计","工程图自动化","BOM体系","SolidWorks","Creo二次开发","NX二次开发","NXOpen","C++","Python","图纸数字化","钣金","结构仿真","工业自动化","机械工程师","结构设计"]
   DateFormat = "2006-01-02"
   ShowReadingTime = true
   ShowShareButtons = false
@@ -47,12 +47,12 @@ hasCJKLanguage = true
   [params.homeInfoParams]
     Title = "TWP技术笔记"
     Content = """
-**视觉 · PLC · 运动控制**
+**机械结构 · 工程图自动化**
 
 产线上踩过的坑、淌过的雷，才是工程师最值钱的资产。
 
-本站只聊机器视觉、PLC、运动控制、机械设计与工业现场调试。  
-C# / C++ 为主，Halcon 是核心工具。不聊前端、不写 AI 玩具、不讲 Linux 运维。
+本站只聊机械结构设计、Creo/NX 参数化建模、工程图与 BOM 自动化、CAD 二次开发。  
+C++ / Python 为主，NXOpen 与 Pro/TOOLKIT 是核心工具。不聊前端、不写 AI 玩具、不讲 Linux 运维。
 """
 
   [[params.socialIcons]]

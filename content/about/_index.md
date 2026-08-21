@@ -24,6 +24,7 @@ hideMeta: true
 |------|------|
 | **机械结构设计** | Creo 参数化建模、Top-Down 整机设计 |
 | **工程图与BOM** | 工程图出图、BOM 体系搭建、图纸自动化转档 |
+| **CAD 二次开发** | NXOpen / Pro·TOOLKIT 插件开发，C++/Python 自动化工具链 |
 | **设计仿真** | 结构仿真（持续学习中） |
 | **交叉领域** | 视觉检测、运动控制（保持好奇） |
 
@@ -31,9 +32,18 @@ hideMeta: true
 - ✅ **Creo 参数化建模** — 主力工具，Top-Down 整机设计
 
 - ✅ **工程图自动化** — Creo 二次开发，图纸转档提效 70%
+- ✅ **NX 二次开发** — NX12 出图插件（7 步向导 + 打标/爆炸图/球标模块，9333 行 C++）
+- ✅ **Python 工具链** — 图纸转 PDF、BOM 清洗、ERP 对接等 8 套自动化工具
 - ✅ **SolidWorks** — 辅助出图
 - ✅ **PTC Creo 中级建模师** — 持有认证
 - 🔄 **结构仿真 / 视觉检测 / 运动控制** — 持续探索中
+
+---
+
+## 🗂️ 开源项目
+
+- **[UG_Draw_NXopen_Dill](https://github.com/tan-wen-peng/UG_Draw_NXopen_Dill)** — NX12 NXOpen C++ 制图自动化工具集：7 步出图向导 + 打标图、爆炸参数、爆炸图、球标模块，共 9333 行源码。
+- **[twptech-blog](https://github.com/tan-wen-peng/twptech-blog)** — 本站源码（Hugo + PaperMod），含部署脚本与 CI/CD 配置。
 
 ---
 
@@ -45,14 +55,14 @@ hideMeta: true
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
     GitHub
   </a>
-  <a href="mailto:2129336720@qq.com" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border:1px solid #333;border-radius:6px;text-decoration:none;color:inherit;font-size:0.9rem">
+  <a href="mailto:2129336372@qq.com" style="display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border:1px solid #333;border-radius:6px;text-decoration:none;color:inherit;font-size:0.9rem">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
     Email
   </a>
 </div>
 {{< /rawhtml >}}
 
-技术讨论、项目合作、方案咨询都欢迎，发邮件到 **2129336720@qq.com** 找我聊聊。
+技术讨论、项目合作、方案咨询都欢迎，发邮件到 **2129336372@qq.com** 找我聊聊。
 
 ---
 
