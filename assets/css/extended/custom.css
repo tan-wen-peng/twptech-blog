@@ -450,3 +450,81 @@
 .menu .menu-icon svg {
   display: block;
 }
+
+/* ===== 鸭子分区首页入口 ===== */
+.duck-promo {
+  padding: 3rem 1.5rem;
+  background: var(--bg-dark);
+}
+.duck-promo-inner {
+  max-width: 950px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  background:
+    radial-gradient(ellipse 60% 100% at 10% 0%, rgba(255,179,0,0.10) 0%, transparent 60%),
+    var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid #FFB300;
+  border-radius: 14px;
+  padding: 2rem 2.2rem;
+  transition: all 0.3s ease;
+}
+.duck-promo-inner:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px var(--shadow-color);
+  border-color: #FFB300;
+  border-left-color: #FFB300;
+}
+.duck-promo-icon {
+  font-size: 3.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 10px rgba(255,179,0,0.25));
+}
+.duck-promo-body { flex: 1; min-width: 240px; }
+.duck-promo-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #FFB300;
+  border: 1px solid rgba(255,179,0,0.35);
+  padding: 3px 10px;
+  border-radius: 3px;
+  margin-bottom: 0.7rem;
+  font-weight: 600;
+}
+.duck-promo-body h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.01em;
+}
+.duck-promo-body p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0 0 1rem;
+}
+.duck-promo-link {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #FFB300;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,179,0,0.35);
+  padding-bottom: 2px;
+  transition: all 0.2s;
+}
+.duck-promo-link:hover {
+  color: #FFD54F;
+  border-bottom-color: #FFD54F;
+}
+@media (max-width: 768px) {
+  .duck-promo-inner { padding: 1.6rem 1.4rem; text-align: center; justify-content: center; }
+  .duck-promo-icon { font-size: 2.6rem; }
+}
