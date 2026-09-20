@@ -1,0 +1,34 @@
+# 图片 slug 映射表  (制表符分隔，不是空格)
+# 列: 原文件名 <TAB> slug <TAB> 可选: 顶部裁掉像素
+#
+# 放在素材目录下命名 map.tsv，然后:
+#   python tools/publish/prepare_images.py <素材目录> <输出目录> --map <素材目录>/map.tsv
+#
+# 不提供本表时，脚本会自动去重并生成 slug（中文名会退化成 img/img-2，建议还是写一份）
+# 第 3 列留空则按 --titlebar auto 规则自动判断（宽度>=2000 裁顶部 2.25%）
+#
+# ---- 以下是 2026-09 Creo 变径弹簧一文的真实映射，可作模板 ----
+新建零件.png	01-new-part	38
+选择程序.png	02-tool-program	38
+03_选择编辑瀑布式开发设计.png	03-edit-design
+04_提示输入.png	04-input-endinput
+05_预设填入.png	05-input-block
+06_输入.png	06-regenerate
+07_输入具体数值.png	07-enter-value
+08_选方程曲线.png	08-curve-from-eq	36
+09_大端构造.png	09-bigend-eq	38
+10_主体曲线.png	10-body-eq
+11_小径前的状态.png	11-before-smallend
+12_小端的曲线方程.png	12-smallend-eq
+13_问题发现.png	13-joint-kink
+14_拐点附近建点.png	14-datum-points
+15_拐点附近切线_前.png	15-tangent-before
+16_拐点附近切线_后.png	16-tangent-after
+17_补线.png	17-curve-thru-pts
+18_补线例子.png	18-patch-example	38
+19_整体复制拼接.png	19-copy-merge
+20_扫描线径.png	20-sweep
+21_成品变径图.png	21-finished
+22_可以修改参数.png	22-parametric-check
+0_成品空图.png	23-finished-clean
+00_大端小端等径效果图.png	24-equal-diameter
