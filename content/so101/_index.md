@@ -1,6 +1,6 @@
 ---
 title: "SO-101"
-description: "SO-101 开源 6 轴机械臂 + LeRobot 学习记录 · 尚未开工 · 进度如实标注"
+description: "SO-101 开源 6 轴机械臂 + LeRobot 学习记录 · 已下单采购等待到货 · 进度与花费如实标注"
 hideMeta: true
 ---
 
@@ -341,17 +341,18 @@ hideMeta: true
 <!-- 进度 -->
 <div class="so101-sec">
   <h2 class="so101-sec-title">现在做到哪了</h2>
-  <p class="so101-sec-sub">BUILD PROGRESS · 尚未开工</p>
+  <p class="so101-sec-sub">BUILD PROGRESS · 采购中</p>
   <div class="so101-progress">
     <div class="so101-progress-head">
-      <div class="now">当前 · 准备阶段 <em>路线与打样清单已定</em></div>
-      <div class="pct">1 / 6</div>
+      <div class="now">当前 · 采购阶段 <em>9 类已下单，等待到货</em></div>
+      <div class="pct">2 / 7</div>
     </div>
     <div class="so101-track">
-      <span class="active"></span><span></span><span></span><span></span><span></span><span></span>
+      <span class="done"></span><span class="active"></span><span></span><span></span><span></span><span></span><span></span>
     </div>
     <ul class="so101-steps">
-      <li class="active">准备 · 路线与打样清单</li>
+      <li class="done">准备 · 路线与打样清单</li>
+      <li class="active">采购 · 下单与到货</li>
       <li class="todo">阶段 0 · 把机器动起来</li>
       <li class="todo">阶段 1 · 采数据</li>
       <li class="todo">阶段 2 · 训练与评估</li>
@@ -364,12 +365,42 @@ hideMeta: true
 <!-- 硬件与预算 -->
 <div class="so101-sec">
   <h2 class="so101-sec-title">硬件与预算</h2>
-  <p class="so101-sec-sub">PARTS &amp; SPEND · 随采购持续更新</p>
+  <p class="so101-sec-sub">PARTS &amp; SPEND · 约 ¥1373–1385（G 型夹按估算浮动）</p>
   <div class="so101-stats">
-    <div class="so101-stat"><div class="v">¥0</div><div class="k">已发生支出</div></div>
-    <div class="so101-stat"><div class="v">0 / 14</div><div class="k">打印件到货</div></div>
-    <div class="so101-stat"><div class="v">0 / 12</div><div class="k">舵机到货</div></div>
-    <div class="so101-stat"><div class="v">6 周</div><div class="k">计划周期</div></div>
+    <div class="so101-stat"><div class="v">¥1373+</div><div class="k">已发生支出</div></div>
+    <div class="so101-stat"><div class="v">9 类</div><div class="k">已下单</div></div>
+    <div class="so101-stat"><div class="v">12 个</div><div class="k">舵机（双臂）</div></div>
+    <div class="so101-stat"><div class="v">10 天</div><div class="k">最慢一件 · 代打</div></div>
+  </div>
+</div>
+
+<!-- 采购清单 -->
+<div class="so101-sec">
+  <h2 class="so101-sec-title">采购清单（实付）</h2>
+  <p class="so101-sec-sub">PURCHASE LOG · 2026-09-20 下单，按实付金额排序</p>
+  <table class="so101-table">
+    <thead>
+      <tr><th>平台</th><th>物品</th><th>实付</th><th>状态</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>淘宝</td><td>飞特 ST3215 舵机 ×12</td><td>¥1080.00</td><td><span class="so101-pill doing">待发货</span></td></tr>
+      <tr><td>拼多多</td><td>3D 打印结构件代打</td><td>¥136.20</td><td><span class="so101-pill doing">待发货 · 最慢</span></td></tr>
+      <tr><td>淘宝</td><td>微雪总线舵机驱动板 (A) ×2</td><td>¥59.46</td><td><span class="so101-pill doing">待发货</span></td></tr>
+      <tr><td>淘宝</td><td>5V6A 电源适配器 ×2</td><td>¥32.38</td><td><span class="so101-pill doing">待发货</span></td></tr>
+      <tr><td>京东</td><td>京东京造 Type-C 线 ×2</td><td>¥19.74</td><td><span class="so101-pill doing">正在出库</span></td></tr>
+      <tr><td>拼多多</td><td>得力数显卡尺 0–150mm</td><td>¥17.91</td><td><span class="so101-pill doing">打包中</span></td></tr>
+      <tr><td>拼多多</td><td>盛利德 9205A 万用表</td><td>¥17.43</td><td><span class="so101-pill doing">打包中</span></td></tr>
+      <tr><td>拼多多</td><td>G 型夹 2 寸 ×2~3</td><td>约 ¥6–18</td><td><span class="so101-pill doing">刚下单</span></td></tr>
+      <tr><td>拼多多</td><td>24 合一精密螺丝刀</td><td>¥3.80</td><td><span class="so101-pill doing">打包中</span></td></tr>
+      <tr><td colspan="2"><strong>合计</strong></td><td><strong>约 ¥1373–1385</strong></td><td></td></tr>
+    </tbody>
+  </table>
+  <div class="so101-note" style="margin-top:1rem">
+    <strong>两笔账值得记：</strong>舵机实际单价 <strong>¥90.0/个</strong>（12 个 ¥1080），比官方 BOM 表里的 ¥97.72 便宜约 8%；
+    结构件代打 <strong>¥136.20</strong>，比海外代打（双臂约 $95 ≈ ¥680）低得多。
+    卡尺、万用表、精密螺丝刀、G 型夹属<strong>装配与测量工具</strong>，不进 BOM 但必须买——
+    后面验收打印件配合精度靠的就是卡尺。
+    <strong>关键路径是结构件代打（10 天）</strong>，其余件到齐了也得等它。
   </div>
 </div>
 
@@ -386,7 +417,7 @@ hideMeta: true
       <tr><td>第 1 批 · 舵机槽件</td><td>8 件（Base_motor_holder / Rotation_Pitch / Motor_holder_Wrist / Wrist_Roll_Pitch 等）——风险最高</td><td><span class="so101-pill todo">待打样</span></td></tr>
       <tr><td>第 1 批 · 花键件</td><td>Moving_Jaw（夹爪）/ Trigger（扳机）——必须装上舵机输出实测转动</td><td><span class="so101-pill todo">待打样</span></td></tr>
       <tr><td>第 1 批 · 驱动板与结构件</td><td>WaveShare_Mounting_Plate + Base / Under_arm / Upper_arm</td><td><span class="so101-pill todo">待打样</span></td></tr>
-      <tr><td>量具（随打样一起买）</td><td>STS3215 舵机 ×1（¥97.72）、Waveshare 驱动板 ×1（¥27）、USB-C 线、螺丝混装包</td><td><span class="so101-pill todo">待采购</span></td></tr>
+      <tr><td>量具（随打样一起买）</td><td>STS3215 舵机、Waveshare 驱动板、Type-C 线 —— 均已下单，见下方采购清单（螺丝混装包待补）</td><td><span class="so101-pill doing">已下单</span></td></tr>
       <tr><td>第 2 批 · 量产</td><td>验收通过后按整盘文件打双份（Ender_Follower + Ender_Leader）</td><td><span class="so101-pill todo">待定义</span></td></tr>
     </tbody>
   </table>
