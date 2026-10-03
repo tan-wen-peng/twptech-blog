@@ -1,6 +1,6 @@
 ---
-title: "作品"
-description: "作品集 · 子系列：机械臂——成图大赛机械类赛题复现（气动楔块杠杆式回转夹爪）"
+title: "机械臂"
+description: "作品 · 机械臂：成图大赛机械类赛题复现——气动楔块杠杆式回转夹爪整机建模"
 hideMeta: true
 ---
 
@@ -301,45 +301,139 @@ hideMeta: true
 .works-gallery img { width:100%; height:auto; border-radius:8px; display:block; background:#0d1a2f; }
 .works-gallery figcaption { font-size:0.8rem; color:var(--text-muted); text-align:center; padding:0.6rem 0 0.2rem; }
 </style>
-
 <div class="works-wrap">
 
 <div class="works-hero">
-  <div class="works-badge">作品集 · PORTFOLIO</div>
-  <h1>把练习<br>做成<span class="hl">作品</span></h1>
+  <div class="works-badge">练习作品 · 赛题复现 · 未参赛</div>
+  <h1>把一张二维图纸<br>变成<span class="hl">整台机械手</span></h1>
   <p class="lead">
-    用真实赛题和真实项目练手，把每一份练习沉淀成经得起同行检验的作品——<br>建模过程、技术账、图纸与参数全部公开。
+    以第十六届「高教杯」全国大学生先进成图技术与产品信息建模创新大赛
+    <strong>机械类产品信息建模试卷</strong>为对象，独立完成的气动楔块杠杆式回转夹爪整机建模。<br>
+    从读图、建零件、装配到参数化——全程一人完成，作为能力展示公开。
   </p>
   <div class="works-hero-tags">
-    <span class="works-chip">🦾 机械臂</span>
-    <span class="works-chip">🧊 三维建模</span>
-    <span class="works-chip">📐 参数化</span>
-    <span class="works-chip">📄 图纸反建</span>
+    <span class="works-chip">🦾 气动回转夹爪</span>
+    <span class="works-chip">🧊 布尔运算建模</span>
+    <span class="works-chip">📐 全参数化</span>
+    <span class="works-chip">⚙️ 机构连接</span>
+    <span class="works-chip">📏 二维反建三维</span>
   </div>
 </div>
 
-<!-- 子系列 -->
+<!-- 背景 -->
 <div class="works-sec">
-  <h2 class="works-sec-title">子系列</h2>
-  <p class="works-sec-sub">SUB-SERIES</p>
+  <h2 class="works-sec-title">作品背景</h2>
+  <p class="works-sec-sub">BACKGROUND · 如实说明</p>
   <div class="works-goals">
-    <a href="/works/robotic-arm/" class="works-goal" style="text-decoration:none">
+    <div class="works-goal">
       <div class="num">01</div>
-      <h3>🦾 机械臂</h3>
-      <p><strong>气动楔块杠杆式回转夹爪</strong>——成图大赛机械类赛题复现。
-      29 个零件、5 层装配、全参数化；赛题图纸已去水印收录。</p>
-    </a>
+      <h3>对象</h3>
+      <p>成图大赛国赛机械类产品信息建模赛题：一台<strong>气动楔块杠杆式回转夹爪</strong>。
+      回转缸体（轴承 6015 / 16007）、夹紧缸体、活塞、楔块、杠杆、手指、电位器座、压缩 / 拉伸弹簧，40+ 种零件。</p>
+    </div>
+    <div class="works-goal">
+      <div class="num">02</div>
+      <h3>定性</h3>
+      <p>这是官方公开赛题的<strong>个人练习复现</strong>——<strong>没有参赛</strong>，也不代表任何成绩。
+      赛题图纸来自公开资料，所有零件均按图纸独立重建。</p>
+    </div>
+    <div class="works-goal">
+      <div class="num">03</div>
+      <h3>目的</h3>
+      <p>用一个有难度的完整产品，检验三件事：二维图纸读图反建、高级特征建模（布尔 / 相交 / 螺旋扫描）、参数化与装配。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 做了什么 -->
+<div class="works-sec">
+  <h2 class="works-sec-title">我做了什么</h2>
+  <p class="works-sec-sub">WHAT I DID</p>
+  <table class="works-table">
+    <thead>
+      <tr><th>环节</th><th>内容</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>读图反建</td><td>按试卷二维工程图建立 <strong>29 个零件</strong>，含后盖、回转缸体、夹紧缸体、楔块、杠杆、手指等全部自制件</td></tr>
+      <tr><td>装配</td><td>5 层装配结构：<strong>000_机械手整体 → 夹爪 / 联轴 / base / 6015</strong> 四个子装配</td></tr>
+      <tr><td>高级特征</td><td>布尔运算、相交、实体化、镜像、阵列、倒角/圆角、<strong>12 处参数化螺纹特征</strong>（M4~M10）</td></tr>
+      <tr><td>弹簧</td><td>压缩 / 拉伸弹簧按 <strong>7 参数方程曲线方案</strong>建立，并封装成 UDF（<code>弹簧.gph</code>）</td></tr>
+      <tr><td>环形切除</td><td>沉孔 / 环形槽封装为 UDF（<code>环形切除.gph</code>），多处复用</td></tr>
+      <tr><td>机构</td><td>按运动关系建立机构连接，并做运动约束检查</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 作品展示 -->
+<div class="works-sec">
+  <h2 class="works-sec-title">作品展示</h2>
+  <p class="works-sec-sub">GALLERY</p>
+  <div class="works-gallery">
+    <figure>
+      <img src="/images/works/cover.webp" alt="机械手整体渲染图" loading="lazy" />
+      <figcaption>机械手整体渲染图</figcaption>
+    </figure>
+    <figure>
+      <img src="/images/works/section-view.webp" alt="剖面分析图" loading="lazy" />
+      <figcaption>剖面分析图</figcaption>
+    </figure>
   </div>
   <div class="works-note" style="margin-top:1rem">
-    更多子系列（机械结构、自动化工具链……）会随作品积累陆续补充。
+    更多视图（爆炸图、手指开合状态、各子装配拆解）会陆续补充。
+  </div>
+</div>
+
+<!-- 技术账 -->
+<div class="works-sec">
+  <h2 class="works-sec-title">建模技术账</h2>
+  <p class="works-sec-sub">NUMBERS</p>
+  <div class="works-stats">
+    <div class="works-stat"><div class="v">29</div><div class="k">自制零件</div></div>
+    <div class="works-stat"><div class="v">5</div><div class="k">装配层级</div></div>
+    <div class="works-stat"><div class="v">12</div><div class="k">螺纹特征</div></div>
+    <div class="works-stat"><div class="v">6</div><div class="k">螺旋扫描</div></div>
+    <div class="works-stat"><div class="v">2</div><div class="k">UDF 复用</div></div>
+  </div>
+</div>
+
+<!-- 亮点 -->
+<div class="works-sec">
+  <h2 class="works-sec-title">一个亮点：弹簧是从方程里长出来的</h2>
+  <p class="works-sec-sub">HIGHLIGHT</p>
+  <p style="font-size:0.92rem;line-height:1.8;color:var(--text-muted)">
+    这台机械手里的压缩弹簧和拉伸弹簧，用的是和本站教程
+    <a href="/posts/spring-parametric/" style="color:var(--works-accent);text-decoration:none;border-bottom:1px solid var(--works-accent)">
+    《弹簧不是画出来的，是算出来的——Creo 参数化变径弹簧实操》</a>
+    完全相同的方案：<strong>7 个参数（高度 / 圈数 / 线径 / 大端直径 / 小端直径 / 两端支撑圈数）+ 三段柱坐标方程曲线 + 修剪 + 扫描</strong>，
+    并且封装成了 UDF。教程里的做法，在这台整机里被当成标准件直接复用——改一个数字，弹簧自动重建。
+  </p>
+</div>
+
+
+<!-- 赛题图纸 -->
+<div class="works-sec">
+  <h2 class="works-sec-title">赛题图纸（已去水印）</h2>
+  <p class="works-sec-sub">CONTEST DRAWINGS · 7 页 · 仅作学习参考</p>
+  <div class="works-gallery">
+    <figure><img src="/images/works/drawings/page-01.webp" alt="赛题图纸第1页" loading="lazy"><figcaption>第 1 页 · 明细表与装配图</figcaption></figure>
+    <figure><img src="/images/works/drawings/page-02.webp" alt="赛题图纸第2页" loading="lazy"><figcaption>第 2 页</figcaption></figure>
+    <figure><img src="/images/works/drawings/page-03.webp" alt="赛题图纸第3页" loading="lazy"><figcaption>第 3 页 · 试卷封面</figcaption></figure>
+    <figure><img src="/images/works/drawings/page-04.webp" alt="赛题图纸第4页" loading="lazy"><figcaption>第 4 页</figcaption></figure>
+    <figure><img src="/images/works/drawings/page-05.webp" alt="赛题图纸第5页" loading="lazy"><figcaption>第 5 页</figcaption></figure>
+    <figure><img src="/images/works/drawings/page-06.webp" alt="赛题图纸第6页" loading="lazy"><figcaption>第 6 页</figcaption></figure>
+    <figure><img src="/images/works/drawings/page-07.webp" alt="赛题图纸第7页" loading="lazy"><figcaption>第 7 页</figcaption></figure>
+  </div>
+  <div class="works-note" style="margin-top:1rem">
+    <strong>说明：</strong>图纸版权归大赛组委会及相关出题方所有。原分享版中的第三方推广水印已去除，
+    官方图纸内容未做任何修改；本页仅用于个人学习记录与能力展示。
   </div>
 </div>
 
 <!-- 说明 -->
 <div class="works-sec">
   <div class="works-note">
-    <strong>说明：</strong>每件作品均如实注明来源与定性（练习 / 赛题复现 / 项目），
-    未参赛、未获授权的作品不暗示任何成绩；涉及第三方图纸的内容按版权要求标注。
+    <strong>说明：</strong>本作品为第十六届「高教杯」成图大赛机械类产品信息建模试卷的<strong>个人练习复现，未参赛</strong>。
+    赛题与图纸版权归大赛组委会及相关出题方所有；本页仅展示个人建模能力与过程记录，不用于任何商业用途。
   </div>
 </div>
 
