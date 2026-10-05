@@ -216,5 +216,5 @@ UF（User Function）函数是 NX 的老接口，参数是裸 tag，看起来丑
 
 ---
 
-*相关阅读：[螺纹不是乱线，是三角形——记我画对第一根粗牙螺纹](../thread-truth/)*
+*相关阅读：[螺纹不是乱线，是三角形——记我画对第一根粗牙螺纹](../thread-truth/) · [我给 NX 加了两个小按钮：尺寸后缀标号、矩形云线——附完整演示视频](../nx-suffix-cloudline/)*
 *配套资源：[下载页](/download/) · [爆炸参数样例](/downloads/explosion-params-example.txt)*
